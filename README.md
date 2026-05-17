@@ -1,2 +1,5 @@
-# asveora-rfc
-Asveora RFC defines a deterministic, instance-sovereign protocol for decentralized identity. It specifies identity lifecycle, validation, registry (CIR), governance, and federation (FDEP), enabling interoperable yet independent Network Instances with strict separation of identity, storage, and trust systems.
+# Repository Status Report
+
+This repository is still under local development. Its population date is TBA once revisions to v1 of the RFC have been completed. If you are looking for documentation concerning Asveora, please see the [documentation library](https://wheelcore.asveora.social/p/library.html) within the [asveora.social](https://www.asveora.social/) Network. Thank you for your understanding.
+
+🤍 AmzroSevca 
