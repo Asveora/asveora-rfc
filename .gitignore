@@ -1,0 +1,7 @@
+# Asveora RFC – Ignored Directories
+
+artifacts/assets/
+artifacts/archived/
+artifacts/src/00-core-orchestration/
+artifacts/examples/
+artifacts/tools/

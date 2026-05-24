@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cdn.asveora.social/schemas/governance/permission.schema.json",
+
+  "title": "Permission Schema (Atomic RBAC Unit)",
+  "type": "object",
+
+  "description": "Defines atomic permission units used for RBAC assignment. Permissions are strictly declarative and MUST NOT influence identity, registry state, or federation behavior.",
+
+  "additionalProperties": false,
+
+  "required": [
+    "permission_id",
+    "resource",
+    "action",
+    "effect"
+  ],
+
+  "properties": {
+
+    "permission_id": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{8,64}$"
+    },
+
+    "resource": {
+      "type": "string",
+      "description": "Target system domain (API, registry, federation, etc.)"
+    },
+
+    "action": {
+      "type": "string",
+      "description": "Atomic action allowed on resource (read, write, delete, validate, etc.)"
+    },
+
+    "effect": {
+      "type": "string",
+      "enum": ["ALLOW", "DENY"]
+    },
+
+    "conditions": {
+      "type": "object",
+      "description": "Non-authoritative constraints. MUST NOT be used to override system-level decisions.",
+      "additionalProperties": true
+    },
+
+    "metadata": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  }
+}

@@ -1,0 +1,128 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cdn.asveora.social/schemas/v1/registry/registry-state.schema.json",
+
+  "title": "Registry State Schema (Read Model)",
+  "type": "object",
+  "additionalProperties": false,
+
+  "required": [
+    "registry_id",
+    "instance_origin",
+    "generated_at",
+    "identity_count",
+    "active_identities"
+  ],
+
+  "description": "Registry State is a deterministic read-model projection of CIR data. It is derived exclusively from CIR.identity_state within the Asveora Unified Identity Model (AUIM). This schema MUST NOT introduce independent identity classification or authority decisions.",
+
+  "properties": {
+
+    "registry_id": {
+      "type": "string",
+      "description": "Unique identifier for this registry state snapshot",
+      "pattern": "^[a-f0-9]{12,64}$"
+    },
+
+    "instance_origin": {
+      "type": "string",
+      "description": "Network Instance that owns this registry state view",
+      "minLength": 3,
+      "maxLength": 256
+    },
+
+    "generated_at": {
+      "type": "string",
+      "description": "ISO-8601 timestamp when this registry state was generated",
+      "format": "date-time"
+    },
+
+    "identity_count": {
+      "type": "integer",
+      "description": "Total number of CIRs represented in this registry snapshot",
+      "minimum": 0
+    },
+
+    "active_identities": {
+      "type": "array",
+      "description": "CIRs projected into ACTIVE state. MUST be derived exclusively from CIR.identity_state = ACTIVE within AUIM. No independent classification permitted.",
+      "items": {
+        "$ref": "https://cdn.asveora.social/schemas/core/00-identity-unified-model.schema.json#/cir"
+      }
+    },
+
+    "suspended_identities": {
+      "type": "array",
+      "description": "CIRs projected into SUSPENDED state. MUST be derived exclusively from CIR.identity_state = SUSPENDED.",
+      "items": {
+        "$ref": "https://cdn.asveora.social/schemas/core/00-identity-unified-model.schema.json#/cir"
+      }
+    },
+
+    "tombstoned_identities": {
+      "type": "array",
+      "description": "Permanently deactivated identities. Derived exclusively from CIR.identity_state = TOMBSTONED.",
+      "items": {
+        "$ref": "https://cdn.asveora.social/schemas/core/00-identity-unified-model.schema.json#/cir"
+      }
+    },
+
+    "migrating_identities": {
+      "type": "array",
+      "description": "Identities undergoing migration. Derived exclusively from CIR.identity_state = MIGRATING.",
+      "items": {
+        "$ref": "https://cdn.asveora.social/schemas/core/00-identity-unified-model.schema.json#/cir"
+      }
+    },
+
+    "registry_metadata": {
+      "type": "object",
+      "description": "Non-authoritative operational metadata for diagnostics and observability. MUST NOT influence identity truth, CIR state, or registry classification logic.",
+
+      "additionalProperties": true,
+
+      "properties": {
+
+        "last_commit_id": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{12,64}$",
+          "description": "Latest commit identifier in registry commit chain"
+        },
+
+        "commit_chain_tip": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{12,64}$",
+          "description": "Pointer to latest commit in append-only registry chain. MUST conform to commit-lifecycle.lifecycle_id format."
+        },
+
+        "sync_state": {
+          "type": "string",
+          "enum": [
+            "SYNCED",
+            "STALE",
+            "DEGRADED",
+            "QUARANTINED"
+          ]
+        },
+
+        "federation_origin": {
+          "type": "string",
+          "description": "Non-authoritative provenance metadata. MUST NOT be used to infer identity trust, authority, or validation outcomes."
+        }
+      }
+    }
+  },
+
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "identity_count": { "minimum": 1 }
+        }
+      },
+      "then": {
+        "required": ["active_identities"]
+      }
+    }
+  ]
+}

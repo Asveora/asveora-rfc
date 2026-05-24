@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cdn.asveora.social/schemas/identity/apa.schema.json",
+  "title": "Asveora Profile Address (APA)",
+  "type": "object",
+  "additionalProperties": false,
+
+  "required": ["apa"],
+
+  "properties": {
+
+    "apa": {
+      "type": "string",
+      "description": "Asveora Profile Address (APA). Used as the address prefix in AUID format: [APA]=[PIK]-[VSIG]. MUST resolve to a CIR-backed identity.",
+      "pattern": "^[a-z0-9][a-z0-9-]{7,127}$"
+    },
+
+    "cir_reference": {
+      "type": "string",
+      "description": "CIR identifier that this APA resolves to. REQUIRED for deterministic identity resolution. MUST be registry-backed.",
+      "pattern": "^[a-f0-9]{8,64}$"
+    },
+
+    "scope": {
+      "type": "string",
+      "description": "Optional namespace scope for partitioned identity domains (e.g., subdomain ownership boundaries). Non-authoritative.",
+      "maxLength": 128
+    },
+
+    "metadata": {
+      "type": "object",
+      "description": "Non-authoritative metadata. MUST NOT affect identity resolution, registry state, RBAC, federation, or exposure decisions.",
+      "additionalProperties": true
+    }
+  }
+}

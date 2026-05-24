@@ -1,0 +1,94 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cdn.asveora.social/schemas/lifecycle/identity-state-machine.schema.json",
+
+  "title": "Identity State Machine (Deterministic Transition Model)",
+  "type": "object",
+
+  "description": "Defines the deterministic lifecycle state transition graph for CIR identity_state. This schema is strictly declarative and MUST NOT implement policy logic, trust evaluation, federation-aware decisioning, or enforcement behavior.",
+
+  "additionalProperties": false,
+
+  "required": [
+    "states",
+    "transitions"
+  ],
+
+  "properties": {
+
+    "states": {
+      "type": "array",
+      "description": "Complete closed set of valid identity lifecycle states in the CIR model. This set MUST be exhaustive and MAY NOT be extended implicitly by external systems.",
+      "items": {
+        "type": "string",
+        "enum": [
+          "INITIATED",
+          "VERIFIED",
+          "VALIDATED",
+          "ACTIVE",
+          "SUSPENDED",
+          "MIGRATING",
+          "TOMBSTONED"
+        ]
+      }
+    },
+
+    "transitions": {
+      "type": "array",
+      "description": "Deterministic allowed transitions between identity states. This is a closed graph definition and MUST be treated as fully authoritative for transition validity only (not execution control).",
+
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+
+        "required": [
+          "from",
+          "to"
+        ],
+
+        "properties": {
+
+          "from": {
+            "type": "string",
+            "enum": [
+              "INITIATED",
+              "VERIFIED",
+              "VALIDATED",
+              "ACTIVE",
+              "SUSPENDED",
+              "MIGRATING",
+              "TOMBSTONED"
+            ]
+          },
+
+          "to": {
+            "type": "string",
+            "enum": [
+              "INITIATED",
+              "VERIFIED",
+              "VALIDATED",
+              "ACTIVE",
+              "SUSPENDED",
+              "MIGRATING",
+              "TOMBSTONED"
+            ]
+          },
+
+          "trigger": {
+            "type": "string",
+            "description": "Deterministic event label that maps to a state transition. MUST be purely descriptive and MUST NOT encode policy, authorization logic, or external decisioning rules."
+          }
+        }
+      }
+    }
+  },
+
+  "allOf": [
+    {
+      "description": "Path C determinism constraint",
+      "not": {
+        "additionalProperties": true
+      }
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+# identity-lifecycle.yaml
+# -------------------------------------------------------
+# Placeholder state machine YAML for Identity Lifecycle
+# Currently contains no operational state transitions or logic.
+# -------------------------------------------------------
+
+state_machine:
+  name: "identity-lifecycle"
+  description: "Placeholder for future identity lifecycle state machine logic"
+  states: []
+  transitions: []
+  triggers: []
+  notes:
+    - "This is a non-functional stub."
+    - "Fill in states, transitions, and triggers according to RFC v1 architecture."
+  created_on: "2026-05-15"
+  version: "v1-stub"

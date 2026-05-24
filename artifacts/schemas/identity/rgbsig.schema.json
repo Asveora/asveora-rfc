@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cdn.asveora.social/schemas/identity/rgbsig.schema.json",
+  "title": "RGB Signature (RGBSIG)",
+  "type": "object",
+  "additionalProperties": false,
+
+  "required": ["rgbsig", "apa_reference", "event_type", "created_at"],
+
+  "properties": {
+
+    "rgbsig": {
+      "type": "string",
+      "description": "RGB Signature (RGBSIG). Human-only activity proof artifact representing actions performed on a profile (e.g., avatar change, profile theme update). NON-AUTHORITATIVE and MUST NOT be used in identity resolution, verification, or authorization systems.",
+      "pattern": "^[a-f0-9]{64,512}$"
+    },
+
+    "apa_reference": {
+      "type": "string",
+      "description": "APA this RGBSIG event is associated with. Used only for contextual association, not identity resolution.",
+      "pattern": "^[a-z0-9][a-z0-9-]{7,127}$"
+    },
+
+    "event_type": {
+      "type": "string",
+      "description": "Type of human-driven profile action that generated this RGBSIG.",
+      "enum": [
+        "AVATAR_CHANGE",
+        "PROFILE_THEME_CHANGE",
+        "PROFILE_METADATA_UPDATE",
+        "DISPLAY_NAME_CHANGE",
+        "PROFILE_LAYOUT_CHANGE"
+      ]
+    },
+
+    "event_hash": {
+      "type": "string",
+      "description": "Deterministic hash of the recorded user action. Used only for audit consistency.",
+      "pattern": "^[a-f0-9]{64,128}$"
+    },
+
+    "source": {
+      "type": "string",
+      "description": "Origin of the action (user, client app, or system UI). NON-AUTHORITATIVE.",
+      "enum": ["USER", "WEB_CLIENT", "MOBILE_CLIENT", "SYSTEM_UI"]
+    },
+
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+
+    "status": {
+      "type": "string",
+      "description": "Lifecycle state of the RGBSIG record. MUST NOT influence identity systems.",
+      "enum": ["ACTIVE", "ARCHIVED", "INVALIDATED"]
+    },
+
+    "metadata": {
+      "type": "object",
+      "description": "Non-authoritative metadata. MUST NOT be used in identity resolution, RBAC, registry state, federation, or exposure decisions.",
+      "additionalProperties": true
+    }
+  }
+}

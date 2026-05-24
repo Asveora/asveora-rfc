@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cdn.asveora.social/schemas/access-control/delegation.schema.json",
+
+  "title": "Delegation Model",
+  "type": "object",
+
+  "additionalProperties": false,
+
+  "required": [
+    "delegation_id",
+    "from_identity",
+    "to_identity",
+    "permissions",
+    "delegation_type",
+    "created_at"
+  ],
+
+  "description": "Defines scoped permission delegation between registry-backed identities. Delegation is strictly a permission-bound transfer mechanism and MUST NOT affect identity resolution, CIR authority, registry state, or federation behavior.",
+
+  "properties": {
+
+    "delegation_id": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{8,64}$"
+    },
+
+    "from_identity": {
+      "type": "string",
+      "description": "Source identity (CIR/PIK only). AUID MUST NOT be used for authority resolution."
+    },
+
+    "to_identity": {
+      "type": "string",
+      "description": "Target identity (CIR/PIK only). AUID MUST NOT be used for delegation targeting."
+    },
+
+    "permissions": {
+      "type": "array",
+      "description": "Explicit permission scopes being delegated. Must resolve to RBAC permission definitions only.",
+      "items": {
+        "$ref": "./permission.schema.json"
+      }
+    },
+
+    "delegation_type": {
+      "type": "string",
+      "enum": ["TEMPORARY", "PERMANENT", "CONDITIONAL"],
+      "description": "Defines scope of delegation validity. MUST NOT modify RBAC semantics or introduce system-level authority escalation."
+    },
+
+    "constraints": {
+      "type": "object",
+      "description": "Non-authoritative constraints applied to delegation evaluation only. MUST NOT affect registry state, CIR validation, federation logic, or schema behavior.",
+      "additionalProperties": true
+    },
+
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+
+    "expires_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

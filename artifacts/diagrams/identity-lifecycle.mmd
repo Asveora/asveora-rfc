@@ -1,0 +1,21 @@
+stateDiagram
+    [*] --> Registration
+    Registration --> PIK_Assignment
+    PIK_Assignment --> APA_Assignment
+    APA_Assignment --> VSIG_Verification
+    VSIG_Verification --> AUID_Formation
+    AUID_Formation --> AER_Projection
+    AER_Projection --> Profile_Active
+    Profile_Active --> Deregistration
+    Deregistration --> [*]
+
+    Profile_Active --> AER_Update
+    AER_Update --> Profile_Active
+
+    PIK_Assignment --> CIR_Log
+    APA_Assignment --> CIR_Log
+    VSIG_Verification --> CIR_Log
+    AUID_Formation --> CIR_Log
+
+    CIR_Log --> Validation
+    Validation --> Federation

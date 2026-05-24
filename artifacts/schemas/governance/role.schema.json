@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cdn.asveora.social/schemas/governance/role.schema.json",
+
+  "title": "Role Schema (RBAC - Declarative Only)",
+  "type": "object",
+
+  "description": "Defines a static role entity used for permission grouping. Roles are declarative labels only and MUST NOT confer system authority, override capability, or identity-level influence.",
+
+  "additionalProperties": false,
+
+  "required": [
+    "role_id",
+    "role_name",
+    "permissions",
+    "created_at"
+  ],
+
+  "properties": {
+
+    "role_id": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{8,64}$",
+      "description": "Unique role identifier"
+    },
+
+    "role_name": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 128
+    },
+
+    "description": {
+      "type": "string",
+      "maxLength": 512
+    },
+
+    "permissions": {
+      "type": "array",
+      "description": "List of permission IDs assigned to this role. Must reference permission schema only.",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-f0-9]{8,64}$"
+      }
+    },
+
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+
+    "metadata": {
+      "type": "object",
+      "description": "Non-authoritative metadata only",
+      "additionalProperties": true
+    }
+  }
+}

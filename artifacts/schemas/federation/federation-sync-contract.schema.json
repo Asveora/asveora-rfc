@@ -1,0 +1,112 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cdn.asveora.social/schemas/federation/federation-sync-contract.schema.json",
+  "title": "Federation Sync Contract",
+  "type": "object",
+
+  "description": "Canonical contract for CIR-backed federation synchronization between instances. Defines allowed exchange surfaces for identity state propagation. Federation is a transport-level decision model and MUST NOT introduce, modify, validate, or infer identity truth beyond CIR registry-derived state.",
+
+  "additionalProperties": false,
+
+  "required": [
+    "contract_id",
+    "source_instance",
+    "target_instance",
+    "sync_mode",
+    "cir_payload",
+    "created_at"
+  ],
+
+  "properties": {
+
+    "contract_id": {
+      "type": "string",
+      "description": "Unique identifier for this federation sync contract execution.",
+      "pattern": "^[a-f0-9]{8,64}$"
+    },
+
+    "source_instance": {
+      "type": "string",
+      "description": "Origin instance issuing CIR data reference. MUST correspond to a registry-valid instance identity.",
+      "minLength": 3,
+      "maxLength": 256
+    },
+
+    "target_instance": {
+      "type": "string",
+      "description": "Destination instance receiving CIR synchronization data reference.",
+      "minLength": 3,
+      "maxLength": 256
+    },
+
+    "sync_mode": {
+      "type": "string",
+      "description": "Defines synchronization type. Determines transport semantics only and does not affect identity authority.",
+      "enum": ["SNAPSHOT", "DELTA", "RECONCILIATION"]
+    },
+
+    "cir_payload": {
+      "type": "object",
+      "description": "CIR data being transported between instances. MUST conform structurally to CIR schema. Federation MUST treat this as opaque identity state data and MUST NOT validate or interpret identity semantics.",
+
+      "required": ["cir_id", "identity_state", "pik_ref", "vsig_ref", "apa_ref"],
+
+      "properties": {
+
+        "cir_id": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{8,64}$"
+        },
+
+        "pik_ref": {
+          "type": "string",
+          "description": "Reference to PIK. MUST NOT contain raw key material.",
+          "pattern": "^[a-f0-9]{32,128}$"
+        },
+
+        "vsig_ref": {
+          "type": "string",
+          "description": "Reference to VSIG object only. MUST NOT be inline signature data.",
+          "pattern": "^[a-f0-9]{64,128}$"
+        },
+
+        "apa_ref": {
+          "type": "string",
+          "description": "Reference to APA object. Non-authoritative resolution pointer.",
+          "pattern": "^[a-z0-9][a-z0-9-]{7,127}$"
+        },
+
+        "identity_state": {
+          "type": "string",
+          "description": "Replicated identity state value. Treated as opaque transport data; interpretation occurs only at higher decision layers.",
+          "enum": [
+            "INITIATED",
+            "VERIFIED",
+            "VALIDATED",
+            "ACTIVE",
+            "SUSPENDED",
+            "MIGRATING",
+            "TOMBSTONED"
+          ]
+        }
+      }
+    },
+
+    "delta_metadata": {
+      "type": "object",
+      "description": "Optional transport metadata describing synchronization context. MUST NOT influence identity truth, registry state, or decision evaluation.",
+      "additionalProperties": true
+    },
+
+    "sync_state": {
+      "type": "string",
+      "description": "Resulting transport state of synchronization process (non-authoritative).",
+      "enum": ["SYNCED", "STALE", "QUARANTINED", "DEGRADED"]
+    },
+
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

@@ -1,0 +1,130 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cdn.asveora.social/schemas/federation/fdep.delta.schema.json",
+
+  "title": "Federation Delta Payload (FDEP)",
+  "type": "object",
+
+  "description": "Minimal deterministic change-set used for cross-instance CIR synchronization. This schema is strictly a transport format and MUST NOT introduce identity authority, inference logic, or validation decisions. All changes MUST correspond directly to CIR state transitions defined in the Asveora Unified Identity Model (AUIM).",
+
+  "additionalProperties": false,
+
+  "required": [
+    "delta_id",
+    "source_instance",
+    "generated_at",
+    "changes"
+  ],
+
+  "properties": {
+
+    "delta_id": {
+      "type": "string",
+      "description": "Unique identifier for this delta payload",
+      "pattern": "^[a-f0-9]{12,64}$"
+    },
+
+    "source_instance": {
+      "type": "string",
+      "description": "Origin Network Instance generating this delta",
+      "minLength": 3,
+      "maxLength": 256
+    },
+
+    "generated_at": {
+      "type": "string",
+      "description": "ISO-8601 timestamp when delta was generated",
+      "format": "date-time"
+    },
+
+    "base_snapshot_id": {
+      "type": "string",
+      "description": "Optional reference to the snapshot this delta is derived from",
+      "pattern": "^[a-f0-9]{12,64}$"
+    },
+
+    "changes": {
+      "type": "array",
+      "description": "Ordered list of deterministic CIR state changes. Each entry MUST map directly to a CIR field mutation as defined in AUIM. No inferred or derived transformations are permitted.",
+
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+
+        "required": [
+          "cir_id",
+          "change_type"
+        ],
+
+        "properties": {
+
+          "cir_id": {
+            "type": "string",
+            "description": "Target CIR identifier affected by this change",
+            "pattern": "^[a-f0-9]{8,64}$"
+          },
+
+          "change_type": {
+            "type": "string",
+            "description": "Type of deterministic CIR state change",
+            "enum": [
+              "STATE_TRANSITION",
+              "FIELD_UPDATE",
+              "MIGRATION_UPDATE",
+              "TOMBSTONE_APPLY"
+            ]
+          },
+
+          "field_path": {
+            "type": "string",
+            "description": "Dot-notation path of the CIR field being updated. Required for FIELD_UPDATE changes."
+          },
+
+          "old_value": {
+            "description": "Previous value prior to change application. Must match CIR state at base snapshot time."
+          },
+
+          "new_value": {
+            "description": "New value after deterministic application of change. Must conform to AUIM constraints."
+          },
+
+          "reason_code": {
+            "type": "string",
+            "description": "Optional machine-readable reason for change (audit only)"
+          }
+        }
+      }
+    },
+
+    "registry_context": {
+      "type": "object",
+      "description": "Non-authoritative synchronization metadata used for observability only. MUST NOT influence CIR state or validation decisions.",
+
+      "additionalProperties": true,
+
+      "properties": {
+
+        "registry_id": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{12,64}$"
+        },
+
+        "sync_state": {
+          "type": "string",
+          "enum": [
+            "SYNCED",
+            "STALE",
+            "DEGRADED",
+            "QUARANTINED"
+          ]
+        },
+
+        "commit_reference": {
+          "type": "string",
+          "description": "Optional reference to registry commit lifecycle event",
+          "pattern": "^[a-f0-9]{12,64}$"
+        }
+      }
+    }
+  }
+}

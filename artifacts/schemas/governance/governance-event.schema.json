@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cdn.asveora.social/schemas/governance/governance-event.schema.json",
+
+  "title": "Governance Event Schema (Audit-Only)",
+  "type": "object",
+
+  "description": "Immutable audit record of governance intent changes. Governance events are strictly observational and MUST NOT influence CIR, registry state, federation synchronization, authorization evaluation, or runtime execution. All enforcement is performed exclusively by Wheelcore runtime layer.",
+
+  "additionalProperties": false,
+
+  "required": [
+    "event_id",
+    "event_type",
+    "actor_ref",
+    "created_at"
+  ],
+
+  "properties": {
+
+    "event_id": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{12,64}$"
+    },
+
+    "event_type": {
+      "type": "string",
+      "enum": [
+        "ROLE_CREATED",
+        "ROLE_UPDATED",
+        "ROLE_DELETED",
+        "PERMISSION_CREATED",
+        "PERMISSION_UPDATED",
+        "POLICY_DECLARED",
+        "AUDIT_LOG_ENTRY"
+      ]
+    },
+
+    "actor_ref": {
+      "type": "string",
+      "description": "Reference identifier of the entity responsible for governance intent declaration. MUST NOT be interpreted as an authority source or used for decision enforcement.",
+      "minLength": 3,
+      "maxLength": 256
+    },
+
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+
+    "target_id": {
+      "type": "string",
+      "description": "Optional reference to affected governance target (role, permission, or policy object).",
+      "pattern": "^[a-f0-9]{8,64}$"
+    },
+
+    "event_payload": {
+      "type": "object",
+      "description": "Immutable snapshot of governance intent metadata. MUST be treated as non-executable observational data only.",
+      "additionalProperties": true
+    },
+
+    "context": {
+      "type": "object",
+      "description": "Non-authoritative diagnostic context for audit traceability. MUST NOT influence any decision or runtime behavior.",
+      "additionalProperties": true
+    }
+  }
+}

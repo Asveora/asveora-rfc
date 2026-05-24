@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cdn.asveora.social/schemas/identity/pik.schema.json",
+  "title": "Primary Identity Key (PIK)",
+  "type": "object",
+  "additionalProperties": false,
+
+  "required": ["pik", "cir_reference", "key_type", "created_at"],
+
+  "properties": {
+
+    "pik": {
+      "type": "string",
+      "description": "Primary Identity Key (PIK). Root cryptographic identifier used in identity composition: [APA]=[PIK]-[VSIG].",
+      "pattern": "^[a-f0-9]{32,128}$"
+    },
+
+    "cir_reference": {
+      "type": "string",
+      "description": "CIR-backed registry identifier that this PIK is bound to. REQUIRED for identity validity.",
+      "pattern": "^[a-f0-9]{8,64}$"
+    },
+
+    "key_type": {
+      "type": "string",
+      "description": "Type of cryptographic key used for PIK generation.",
+      "enum": ["ED25519", "ECDSA_P256", "RSA_2048"]
+    },
+
+    "status": {
+      "type": "string",
+      "description": "Lifecycle status of the PIK within registry authority.",
+      "enum": ["ACTIVE", "ROTATED", "REVOKED", "DEPRECATED"]
+    },
+
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+
+    "rotated_from": {
+      "type": "string",
+      "description": "Previous PIK if this key is a rotation successor. Used for continuity tracking.",
+      "pattern": "^[a-f0-9]{32,128}$"
+    },
+
+    "metadata": {
+      "type": "object",
+      "description": "Non-authoritative metadata. MUST NOT affect identity resolution, registry state, RBAC, federation, or exposure decisions.",
+      "additionalProperties": true
+    }
+  }
+}

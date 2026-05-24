@@ -1,0 +1,17 @@
+# registry-commit-lifecycle.yaml
+# -------------------------------------------------------
+# Placeholder state machine YAML for Registry Commit Lifecycle
+# Currently contains no operational state transitions or logic.
+# -------------------------------------------------------
+
+state_machine:
+  name: "registry-commit-lifecycle"
+  description: "Placeholder for future registry commit lifecycle state machine logic"
+  states: []
+  transitions: []
+  triggers: []
+  notes:
+    - "This is a non-functional stub."
+    - "Fill in states, transitions, and triggers according to RFC v1 architecture."
+  created_on: "2026-05-15"
+  version: "v1-stub"

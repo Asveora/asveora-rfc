@@ -1,0 +1,104 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cdn.asveora.social/schemas/dependency-graph.schema.json",
+  "title": "Asveora System Dependency Graph Schema",
+  "type": "object",
+  "additionalProperties": false,
+
+  "required": [
+    "graph_version",
+    "layers"
+  ],
+
+  "properties": {
+
+    "graph_version": {
+      "type": "string",
+      "description": "Semantic version of the dependency graph schema",
+      "pattern": "^v[0-9]+\\.[0-9]+$"
+    },
+
+    "layers": {
+      "type": "array",
+      "description": "Ordered execution layers of the Asveora system",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/layer"
+      }
+    }
+  },
+
+  "$defs": {
+
+    "layer": {
+      "type": "object",
+      "additionalProperties": false,
+
+      "required": [
+        "layer_id",
+        "layer_name",
+        "systems",
+        "depends_on",
+        "provides"
+      ],
+
+      "properties": {
+
+        "layer_id": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Numeric layer order (lower executes first)"
+        },
+
+        "layer_name": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Human-readable layer name"
+        },
+
+        "systems": {
+          "type": "array",
+          "description": "RFC or schema systems in this layer",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+
+        "depends_on": {
+          "type": "array",
+          "description": "Layer IDs this layer depends on",
+          "items": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+
+        "provides": {
+          "type": "array",
+          "description": "Capabilities exposed by this layer",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+
+        "dependency_type": {
+          "type": "string",
+          "enum": [
+            "ROOT",
+            "HARD",
+            "SOFT",
+            "CONTEXT"
+          ],
+          "default": "HARD"
+        },
+
+        "schema_bound": {
+          "type": "boolean",
+          "description": "Whether this layer is governed by machine-enforceable schemas"
+        }
+      }
+    }
+  }
+}

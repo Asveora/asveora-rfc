@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cdn.asveora.social/schemas/lifecycle/validation-pipeline.schema.json",
+
+  "title": "Validation Pipeline (Deterministic Execution Model)",
+  "type": "object",
+
+  "description": "Defines the ordered deterministic validation stages applied to CIR processing before registry commit. This pipeline is strictly execution-oriented and MUST NOT contain policy logic, trust evaluation, or decision authority.",
+
+  "additionalProperties": false,
+
+  "required": [
+    "pipeline_id",
+    "stages"
+  ],
+
+  "properties": {
+
+    "pipeline_id": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{12,64}$"
+    },
+
+    "stages": {
+      "type": "array",
+      "description": "Ordered list of validation stages executed deterministically",
+
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+
+        "required": [
+          "stage_name",
+          "order"
+        ],
+
+        "properties": {
+
+          "stage_name": {
+            "type": "string",
+            "enum": [
+              "STRUCTURAL_VALIDATION",
+              "CIR_SCHEMA_VALIDATION",
+              "IDENTITY_STATE_CONSISTENCY_CHECK",
+              "REGISTRY_CONFLICT_CHECK",
+              "FEDERATION_SYNC_VALIDATION",
+              "FINAL_PRE_COMMIT_CHECK"
+            ]
+          },
+
+          "order": {
+            "type": "integer",
+            "minimum": 0
+          },
+
+          "description": {
+            "type": "string",
+            "description": "Deterministic description of stage purpose. MUST NOT include conditional logic or policy interpretation."
+          }
+        }
+      }
+    }
+  }
+}

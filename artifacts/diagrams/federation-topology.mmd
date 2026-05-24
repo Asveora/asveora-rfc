@@ -1,0 +1,18 @@
+%% federation-topology.mmd
+%% Stub diagram for Asveora federation topology
+%% Compatible with VS Code Mermaid Preview
+%% Placeholder IDs added for RFC referencing
+
+%%{init: {'theme':'default'}}%%
+graph LR
+    id_ft_01[Network Instance 1 (Layer 1)] -->|Sync| id_ft_02[Network Instance 2 (Layer 1)]
+    id_ft_02 -->|Sync| id_ft_03[Network Instance 3 (Layer 1)]
+    id_ft_03 -->|Sync| id_ft_01[Network Instance 1 (Layer 1)]
+
+    id_ft_04[Federation Hub (Overlay)] --> id_ft_01
+    id_ft_04 --> id_ft_02
+    id_ft_04 --> id_ft_03
+
+    %% Notes: placeholder nodes for future expansion
+    classDef note fill:#ccf,stroke:#333,stroke-width:1px,color:#000;
+    class id_ft_01,id_ft_02,id_ft_03,id_ft_04 note;

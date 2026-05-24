@@ -1,0 +1,1372 @@
+<!--CSS-START-->
+
+<style>
+  
+	/*SCTN-PAGE-VARIABLES*/
+	/*These variables dictate the color scheme of common elements on the page.*/
+	/*The primary color is typically employed for primary divs and elements.*/
+	/*The secondary color is typically employed for text and visual contrast.*/
+	/*The hover color is employed for the color elements will turn when hovered over.*/
+
+	:root{
+		--primary-color: #000059;
+		--secondary-color: #ffffff;
+		--hover-color: #000038;
+	}
+  
+	/*SCTN-BODY-TAG*/
+	/*Controls the page background image and background color.*/
+	/*The background color will be displayed under the background image.*/
+	/*Change the link inside of url('') to change the background image.
+	/*It is also displayed on the navigation bar of mobile device browsers as a sort of accent color.*/
+	/*To remove the page background image delete all properties other than 'background-color:' from the body tag.*/
+	/*For gradient colors replace 'background-color:' with 'background-image:' followed by a linear, radial, or conic gradient value.*/
+  
+  	body{
+		background: url('https://cdn.asveora.social/Banners/Body/Asveora_Core_Banner_0001_M4X.png') no-repeat center center fixed; 
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+		overflow-y: scroll;
+		overscroll-behavior-y: contain;
+		background-color: var(--primary-color);
+		width: 1000px;
+		margin-left: auto;
+		margin-right: auto;
+		line-height: 1.4;
+	}
+	
+	a{
+		text-decoration: none;
+	}
+  
+	/*SCTN-CONTENT-AREA-CLASSES*/
+	/*Controls the spacing, color, padding, image styling, text styling, and layout of a content area div.*/
+
+	.cnstttn-content-area{
+		background: url('https://cdn.asveora.social/Content/Wikis/constitution/Image-Select/Parchment_CMS.jpg') no-repeat center center fixed;
+		background-size: 100% 100%;
+		border-radius: 50px;
+		margin-top: 150px;
+		padding: 80px;
+	}
+  
+	.cnstttn-author-tag{
+		text-align: left;
+		display: flex;
+		justify-content: space-between;
+		width: 200px;
+		align-items: center;
+	}
+  
+	.cnstttn-avatar-dec{
+		border-radius: 50%;
+	}
+  
+	.cnstttn-publishing-date{
+		margin-top: 10px;
+	}
+  
+  	.cnstttn-publishing-date-text{
+		font-family: helvetica, arial, sans-serif;
+		font-size: 24px;
+		color: #6666ff;		
+	}
+  
+	.cnstttn-constitution-header{
+		margin-top: 50px;
+		text-align: center;
+	}
+  
+	.cnstttn-constitution-header-alt{
+		text-align: center;
+	}
+
+	.cnstttn-content-title{
+		margin-top: 50px;
+		text-align: center;
+	}
+
+  	.cnstttn-content-title-text{
+		font-family: helvetica, arial, sans-serif;
+		font-size: 60px;
+		color: var(--secondary-color);		
+	}
+  
+	.cnstttn-content-body{
+		margin-top: 40px;
+	}
+  
+  	.cnstttn-content-body-text{
+		font-family: helvetica, arial, sans-serif;
+		font-size: 28px;
+		color: var(--secondary-color);		
+	}
+  
+	.cnstttn-section-title{
+		font-family: helvetica, arial, sans-serif;
+		font-size: 36px;
+		color: #9e9e9e;
+	}
+  
+	.cnstttn-link-text{
+		color: #b8b8ff;
+	}
+  
+	.cnstttn-link-text:hover{
+		text-decoration: underline;
+		text-decoration-color: #b8b8ff;
+		text-decoration-thickness: 3px;
+	}
+  
+	.cnstttn-content-img-slot{
+		margin-top: 40px;
+		text-align: center;
+	}
+  
+	.cnstttn-content-img{
+		border-radius: 10px;
+	}
+  
+	/*SCTN-LABEL-TEXT-CLASSES*/
+	/*Controls the font styling of label text used on banners and large button divs.*/
+  
+	.cnstttn-lb-text-02{
+		font-family: helvetica, arial, sans-serif;
+		font-size: 60px;
+		color: var(--secondary-color);
+	}
+  
+	/*SCTN-RETURN-BUTTON-CLASSES*/
+	/*Controls the color, spacing, size, and alignment of the return button div.*/
+  
+	.cnstttn-return-button{
+		background: var(--primary-color);
+		border-radius: 50px;
+		margin-top: 50px;
+		margin-left: auto;
+		margin-right: auto;	
+		padding-top: 40px;
+		padding-bottom: 40px;
+		text-align: center;
+		width: 100%;
+		transition: 0.3s;
+	}
+  
+	.cnstttn-return-button:hover{
+		background: var(--hover-color);
+	}
+  
+</style>
+
+<!--CSS-END-->
+
+
+
+
+
+
+
+
+
+
+<!--HTML-START-->
+
+	<!--SCTN-CONTENT-BODY-->
+	<!--This is the primary div containing the body of the constitution.-->
+
+	<div class="cnstttn-content-area">
+
+		<!--This code block is currently disabled. To enable it, remove the comment wrapper from the top and bottom. Any lines with "xx" are HTML comments that should be wrapped when the block is enabled.
+		xxAUTHOR-TAGxx
+      
+		<a href="https://wheelcore.asveora.social/">
+			<div class="cnstttn-author-tag">
+				<div class="cnstttn-avatar-area">
+					<img alt="Rings featuring various shades of blue surrounding the Asveora icon with an abstract blue gradient background." class="cnstttn-avatar-dec" data-original-height="2000" data-original-width="2000" src="https://cdn.asveora.social/AvtarBin/Admin/Asveora_Network_PFP_0003_CMS.jpg" height="60" width="60"/>
+				</div>
+				<div class="cnstttn-nameplate-area">
+					<img alt="The word 'Asveora Social' written in the Lequire bold font." data-original-height="600" data-original-width="4000" src="https://cdn.asveora.social/Buttons/Name-Plates/ASV_Name_Plate_Gradient_0001.png" width="200" height="30"/>
+				</div>
+			</div>
+		</a>
+       
+		xxPUBLISHING-DATExx
+      
+		<div class="cnstttn-publishing-date">
+			<span class="cnstttn-publishing-date-text"><strong>Last Updated on 2026-05-17<br>01:38 PM (EDT/UTC-4)</strong></span>
+		</div>
+		This code block is currently disabled. To enable it, remove the comment wrapper from the top and bottom. Any lines with "xx" are HTML comments that should be wrapped when the block is enabled.-->
+      
+		<!--CONSTITUTION-HEADER-->
+      
+		<div class="cnstttn-constitution-header-alt">
+			<img class="cnstttn-content-img" data-original-height="1280" data-original-width="720" width="812" height="116" src="https://cdn.asveora.social/Content/Wikis/constitution/Image-Select/constitution_wht.png"/>
+		</div>
+          
+		<!--PAGE-CONTENT-->
+      
+		<!--00-TABLE-OF-CONTENTS-->
+      
+		<div class="cnstttn-content-body">
+			<span class="cnstttn-content-title-text"><strong>Table of Contents</strong>
+			</span>
+		</div>
+      
+        <div class="cnstttn-content-body">
+            <span class="cnstttn-section-title">
+                <strong>Foundational Declarations</strong>
+            </span>
+            <br>
+            <span class="cnstttn-content-body-text">
+                <a href="#key-terms"><span class="cnstttn-link-text">00. Key Terms</span></a>
+                <br>
+                <a href="#global-governance-hierarchy"><span class="cnstttn-link-text">00. Global Governance Hierarchy Statement</span></a>
+                <br>
+                <a href="#single-human-civic-weight-unit"><span class="cnstttn-link-text"> 00. Single-Human Civic Weight Unit (SHCWU)</span></a>
+                <br>
+                <a href="#civic-identity-integrity-layer"><span class="cnstttn-link-text">00. Civic Safety & Identity Integrity Layer (CS2IL)</span></a>
+                <br>
+                <a href="#auid-doctrine"><span class="cnstttn-link-text">00. AUID Doctrine Clause</span></a>
+                <br>
+                <a href="#canonical-constitutional-terminology"><span class="cnstttn-link-text">00. Canonical Constitutional Terminology Rule</span></a>
+                <br>
+                <a href="#licensing-restriction"><span class="cnstttn-link-text">00. Global Licensing Restriction Clause</span></a>
+                <br>
+                <a href="#preamble"><span class="cnstttn-link-text">01. Preamble</span></a>
+                <br>
+                <a href="#age-of-citizenship"><span class="cnstttn-link-text">02. Age of Citizenship</span></a>
+                <br>
+            </span>
+
+            <br>
+            <span class="cnstttn-section-title">
+                <strong>Core Civic & Network Participation</strong>
+            </span>
+            <br>
+            <span class="cnstttn-content-body-text">
+                <a href="#agreements-obligations"><span class="cnstttn-link-text">03. Agreements &amp; Obligations</span></a>
+                <br>
+                <a href="#privacy-security"><span class="cnstttn-link-text">04. Privacy &amp; Security</span></a>
+                <br>
+                <a href="#once-free-always-free"><span class="cnstttn-link-text">05. Once Free Always Free</span></a>
+                <br>
+                <a href="#data-ownership-protections"><span class="cnstttn-link-text">06. Data Ownership, DMCAs, &amp; Protections</span></a>
+                <br>
+            </span>
+
+            <br>
+            <span class="cnstttn-section-title">
+                <strong>Rights, Ethics & Social Contract</strong>
+            </span>
+            <br>
+            <span class="cnstttn-content-body-text">
+                <a href="#human-rights-statement"><span class="cnstttn-link-text">07. Human Rights Statement</span></a>
+                <br>
+                <a href="#prohibition-disruptive-organization"><span class="cnstttn-link-text">08. Prohibition of Disruptive Organization</span></a>
+                <br>
+                <a href="#appropriate-usernames-and-piks"><span class="cnstttn-link-text">09. Appropriate Usernames and Primary Identity Keys (PIKs)</span></a>
+                <br>
+                <a href="#content-sharing-expectations"><span class="cnstttn-link-text">10. Content Sharing Expectations</span></a>
+                <br>
+            </span>
+
+            <br>
+            <span class="cnstttn-section-title">
+                <strong>Civic Governance</strong>
+            </span>
+            <br>
+            <span class="cnstttn-content-body-text">
+                <a href="#democratic-rights-network-removals"><span class="cnstttn-link-text">11. Democratic Rights &amp; Network Removals</span></a>
+                <br>
+                <a href="#civic-identity-integrity"><span class="cnstttn-link-text">12. Civic Identity, AUID Ownership, &amp; Voting Consolidation</span></a>
+                <br>
+                <a href="#federation-membership-integrity"><span class="cnstttn-link-text">13. Federation Membership Integrity, Transition Windows, &amp; Participation Cooldowns</span></a>
+                <br>
+            </span>
+
+            <br>
+            <span class="cnstttn-section-title">
+                <strong>Platform Interoperability & Safety</strong>
+            </span>
+            <br>
+            <span class="cnstttn-content-body-text">
+                <a href="#accessing-protocols-staying-safe"><span class="cnstttn-link-text">14. Accessing Protocols &amp; Staying Safe</span></a>
+                <br>
+                <a href="#transfer-backup-communications-profile"><span class="cnstttn-link-text">15. Transfer &amp; Backup of Communications Profile</span></a>
+                <br>
+                <a href="#malicious-links-malware-attacks"><span class="cnstttn-link-text">16. Malicious Links, Malware, &amp; Attacks</span></a>
+                <br>
+            </span>
+
+            <br>
+            <span class="cnstttn-section-title">
+                <strong>Economic & External Interactions</strong>
+            </span>
+            <br>
+            <span class="cnstttn-content-body-text">
+                <a href="#buying-selling-services-marketplace"><span class="cnstttn-link-text">17. Buying &amp; Selling in the Services Marketplace</span></a>
+                <br>
+                <a href="#advertisements-paywalls-external-marketplaces"><span class="cnstttn-link-text">18. Advertisements, Paywalls, &amp; External Marketplaces</span></a>
+                <br>
+            </span>
+
+            <br>
+            <span class="cnstttn-section-title">
+                <strong>Integrity, Enforcement & Content Governance</strong>
+            </span>
+            <br>
+            <span class="cnstttn-content-body-text">
+                <a href="#impersonation-and-badges"><span class="cnstttn-link-text">19. Impersonation &amp; Badges</span></a>
+                <br>
+                <a href="#ai-generated-content"><span class="cnstttn-link-text">20. AI Generated Content</span></a>
+                <br>
+                <a href="#liability-disclaimer"><span class="cnstttn-link-text">21. Liability Disclaimer and Responsibility Boundaries</span></a>
+                <br>
+            </span>
+
+            <br>
+            <span class="cnstttn-section-title">
+                <strong>Agreement &amp; Closure</strong>
+            </span>
+            <br>
+            <span class="cnstttn-content-body-text">
+                <a href="#agreement-to-constitution"><span class="cnstttn-link-text">22. Agreement to the Constitution</span></a>
+                <br>
+                <a href="#history-of-constitution"><span class="cnstttn-link-text">23. History of the Constitution</span></a>
+                <br>
+            </span>
+        </div>
+      
+        <!--00-KEY-TERMS-->
+
+        <div id="key-terms" class="cnstttn-content-body">
+            <span class="cnstttn-section-title"><strong>00. Key Terms</strong>
+            </span>
+        </div>
+
+        <div class="cnstttn-content-body">
+            <span class="cnstttn-content-body-text">
+
+                When we say "Asveora," "we," "us," and "our" in these terms, we mean the Asveora Ecosystem, including asveora.social, its governing frameworks, and all associated Networks, Federations, Systems, Wheelcores, LandHubs, and Profile Spaces operating under this Constitution.<br><br>
+
+                When we say "services," we mean all applications, websites, protocols, governance systems, tools, and civic or digital infrastructure operated within or on behalf of the Asveora Ecosystem, including those operated by Networks and Federations.<br><br>
+
+                When we say "user," "citizen," "member," or "Asveoran," we mean an individual or recognized entity that participates in an Asveora Network and is assigned an Asveora Unified Identity Descriptor (AUID) for governance participation, civic interaction, and constitutional accountability.<br><br>
+
+                When we say "AUID" (Asveora Unified Identity Descriptor), we mean the singular civic identity unit assigned to a human participant within the Asveora Ecosystem. Each human is constitutionally entitled to only one canonical AUID. Duplicate, legacy, fraudulent, or operationally overlapping AUIDs must consolidate into a single canonical AUID under SHCWU enforcement. The AUID is the root unit of governance participation, including voting rights, jury participation, and civic influence. All Profile Spaces, Network accounts, Communications Profiles, and civic representations associated with a human must resolve to a single AUID for purposes of identity integrity, governance weighting, and enforcement under Section 12.<br><br>
+
+                When we say "you" or "your," we mean the individual or legal entity accessing or using Asveora services. If you are acting on behalf of an organization, you confirm you have authority to bind that organization, and all references to "you" or "your" apply to that entity.<br><br>
+
+                When we say "External Visitors," we mean any person or entity that is not a recognized member of an Asveora Network and does not hold an AUID. External Visitors may access or interact with publicly available Asveoran spaces but do not possess governance rights, civic participation rights, or voting influence within the Ecosystem.<br><br>
+
+                When we say "Network," we mean a self-governing civic structure within the Asveora Ecosystem that may contain, coordinate, or index subordinate civic units such as Wheelcores, LandHubs, Systems, and Profile Spaces. Networks operate under this Constitution, maintain independent internal governance systems, and remain fully bound to Ecosystem-wide rules, including Civic Identity Integrity (Section 12) and Federation governance constraints.<br><br>
+
+                When we say "Federation," we mean a formally declared alliance between two or more Networks within the Asveora Ecosystem. Federations exist only through explicit governance declaration and operate under structured entry, exit, and transition rules, including mandatory cooldown periods. Federations do not alter or multiply civic identity, as all governance influence remains bound to a single AUID per human being.<br><br>
+
+                When we say "Civic Identity Integrity Layer," we mean the constitutional rule system defined in Section 12 that enforces one-to-one mapping between a human being and a Civic Identity Unit (AUID), ensuring that identity, governance participation, and civic influence cannot be duplicated, fragmented, or artificially multiplied across Profiles, Networks, or Federations.
+
+            </span>
+        </div>
+      
+        <!--00-GLOBAL-GOVERNANCE-HIERARCHY-->
+
+        <div id="global-governance-hierarchy" class="cnstttn-content-body">
+            <span class="cnstttn-section-title"><strong>00. Global Governance Hierarchy Statement</strong></span>
+        </div>
+
+        <div class="cnstttn-content-body">
+            <span class="cnstttn-content-body-text">
+
+                All rules, enforcement actions, interpretations, and governance outcomes within the Asveora Ecosystem are subject to the following hierarchy:<br><br>
+
+                <strong>01. External Real-World Laws</strong><br>
+                Supreme authority. All Asveora systems must comply with applicable national and international law.<br><br>
+
+                <strong>02. Asveora Constitution</strong><br>
+                Primary internal governing document of the Ecosystem.<br><br>
+
+                <strong>03. Federation Rules</strong><br>
+                Binding rules within Federation scope only.<br><br>
+
+                <strong>04. Network Rules</strong><br>
+                Rules established by individual Networks.<br><br>
+
+                <strong>05. Subsystem Rules</strong><br>
+                Rules governing subordinate civic or operational structures including Wheelcores, LandHubs, Systems, and Profile Spaces.<br><br>
+
+                <strong>Hierarchy Enforcement Rule</strong><br>
+                Lower layers may never override higher layers. Conflicts resolve upward.
+
+            </span>
+        </div>
+
+        <!--00-SINGLE-HUMAN-CIVIC-WEIGHT-UNIT-->
+
+        <div id="single-human-civic-weight-unit" class="cnstttn-content-body">
+            <span class="cnstttn-section-title"><strong>00. Single-Human Civic Weight Unit (SHCWU)</strong></span>
+        </div>
+
+        <div class="cnstttn-content-body">
+            <span class="cnstttn-content-body-text">
+
+                All civic influence, voting weight, governance participation, and identity-based computation are represented by the term: <strong>Single-Human Civic Weight Unit (SHCWU)</strong><br><br>
+
+                Below are a list of phrases and terms that mean SHCWU and inversely what SHCWU stands for:<br><br>
+
+                <strong>Definition Sync Rules:</strong><br>
+                • “one civic influence unit” = SHCWU<br>
+                • “single Civic Identity Unit” = SHCWU<br>
+                • “one-human, one-civic-weight” = SHCWU<br>
+                • “computed at human level” = calculated per SHCWU<br><br>
+
+                SHCWU represents indivisible civic influence resolved at the human level. A single human may control or operate multiple AUID-linked identities, Communications Profiles, or protocol-specific accounts; however, all verified identities associated with that human collapse into exactly one civic weight for all governance, voting, jury, representation, and civic influence calculations throughout the Asveora Ecosystem.
+
+            </span>
+        </div>
+
+        <!--00-CIVIC-IDENTITY-INTEGRITY-LAYER-->
+
+        <div id="civic-identity-integrity-layer" class="cnstttn-content-body">
+            <span class="cnstttn-section-title"><strong>00. Civic Safety & Identity Integrity Layer (CS2IL)</strong></span>
+        </div>
+
+        <div class="cnstttn-content-body">
+            <span class="cnstttn-content-body-text">
+
+                The Civic Safety & Identity Integrity Layer (CS2IL) is the enforcement and protection subsystem of the Asveora Ecosystem.<br><br>
+
+                It is responsible for identity integrity enforcement, malicious activity mitigation, governance protection, and system trust verification.<br><br>
+
+                <strong>Properties:</strong><br>
+                • Operates across all Networks and Federations<br>
+                • Possesses enforcement authority only<br>
+                • Cannot modify constitutional rules<br>
+                • Cannot override Constitution or SHCWU logic<br>
+
+            </span>
+        </div>
+
+        <!--00-AUID-DOCTRINE-->
+
+        <div id="auid-doctrine" class="cnstttn-content-body">
+            <span class="cnstttn-section-title"><strong>00. AUID Doctrine Clause</strong></span>
+        </div>
+
+        <div class="cnstttn-content-body">
+            <span class="cnstttn-content-body-text">
+
+                The Asveora Unified Identity Descriptor is the singular civic identity anchor for all participation.<br><br>
+
+                <strong>Doctrine Rules:</strong><br>
+                • One human = one AUID<br>
+                • Multiple AUIDs owned by one human MUST resolve to a single AUID<br>
+                • All SHCWU allocation is tied to AUID<br>
+                • No duplication, forking, or cloning permitted<br>
+                • Identity fragmentation is a constitutional violation<br>
+
+            </span>
+        </div>
+      
+        <!--00-CANONICAL-CONSTITUTIONAL-TERMINOLOGY-RULE-->
+
+        <div id="canonical-constitutional-terminology" class="cnstttn-content-body">
+            <span class="cnstttn-section-title"><strong>00. Canonical Constitutional Terminology Rule</strong></span>
+        </div>
+
+        <div class="cnstttn-content-body">
+            <span class="cnstttn-content-body-text">
+
+                The following constitutional terminology is canonical throughout the Asveora Ecosystem and supersedes alternate or inconsistent phrasing across all Networks, Federations, Systems, governance documents, and subordinate civic structures.<br><br>
+
+                <strong>SHCWU</strong><br>
+                Single-Human Civic Weight Unit. Represents indivisible civic influence resolved at the human level for all governance, voting, jury participation, representation, and civic influence calculations.<br><br>
+
+                <strong>AUID</strong><br>
+                Asveora Unified Identity Descriptor. Represents the canonical civic identity anchor associated with a human participant within the Asveora Ecosystem.<br><br>
+
+                <strong>CS2IL</strong><br>
+                Civic Safety & Identity Integrity Layer. Represents the Ecosystem-wide enforcement, civic safety, and identity integrity protection layer responsible for maintaining SHCWU enforcement, identity consolidation, malicious activity mitigation, governance protection, and civic trust safeguards.<br><br>
+
+                <strong>Constitution</strong><br>
+                Refers exclusively to the Asveora Constitution as the primary governing document of the Ecosystem.<br><br>
+
+                <strong>Ecosystem</strong><br>
+                Refers exclusively to the Asveora Ecosystem, including all Networks, Federations, Systems, Wheelcores, LandHubs, Profile Spaces, and subordinate civic structures operating under this Constitution.<br><br>
+
+                Any conflicting, legacy, abbreviated, or alternate terminology must be interpreted in alignment with these canonical definitions.
+
+            </span>
+        </div>
+
+        <!--00-GLOBAL-LICENSING-RESTRICTION-->
+
+        <div id="licensing-restriction" class="cnstttn-content-body">
+            <span class="cnstttn-section-title"><strong>00. Global Licensing Restriction Clause</strong></span>
+        </div>
+
+        <div class="cnstttn-content-body">
+            <span class="cnstttn-content-body-text">
+
+                No individual or organization may relicense, repackage, or claim ownership of the Asveora Ecosystem or Constitution.<br><br>
+
+				All commercialization, redistribution, modification, or deployment of Asveora components must comply with the licenses specified within the official Asveora repositories.<br><br>
+
+				Unauthorized relicensing, enclosure, proprietary misrepresentation, or false ownership claims regarding the Ecosystem or Constitution are prohibited.
+
+            </span>
+        </div>
+
+        <!--01-PREAMBLE-->
+
+        <div id="preamble" class="cnstttn-content-body">
+            <span class="cnstttn-section-title"><strong>01. Preamble</strong></span>
+        </div>
+
+        <div class="cnstttn-content-body">
+            <span class="cnstttn-content-body-text">
+
+                Asveora is a decentralized civic Ecosystem structured as a Decentralized Democratic Constitutional Republic (DDCR), designed to enable distributed governance, civic participation, and technological self-sustainability across interconnected Networks. Its purpose is to reduce dependency on centralized platforms while enabling structured digital governance and authenticated civic interaction.<br><br>
+
+            </span>
+
+            <span class="cnstttn-content-body-text">
+
+                The Asveora Constitution governs participation across the Ecosystem, including the asveora.social Network and all associated Networks, Federations, Systems, and civic infrastructures. It defines binding rules, rights, obligations, and identity constraints governing civic participation, including voting, jury participation, and governance processes anchored through the AUID (Asveora Unified Identity Descriptor) framework defined in Section 00 and enforced through identity integrity rules in Section 12.<br><br>
+
+            </span>
+
+            <span class="cnstttn-content-body-text">
+
+                The Asveora Ecosystem is structured as a layered civic topology consisting of Profile Spaces, Wheelcores, LandHubs, Systems, Networks, and Federations. Each layer operates as an interoperable civic unit with distinct governance functions. Profile Spaces represent identity-facing participation layers, Wheelcores, LandHubs, and Systems function as modular operational or organizational structures, Networks serve as primary governance domains, and Federations represent formal, explicitly declared alliances between Networks governed by structured entry, exit, and transition rules.<br><br>
+
+            </span>
+
+            <span class="cnstttn-content-body-text">
+
+                This Constitution was originally established by the first declared Federation of Asveora known as “Asveora Genesis.” It is maintained as a living civic document subject to structured amendment through Ecosystem governance processes. Structural provisions may remain persistent where required to preserve identity integrity, system stability, or compliance with applicable external legal frameworks.<br><br>
+
+            </span>
+
+            <span class="cnstttn-content-body-text">
+
+                Participation in Asveora constitutes agreement to all principles, governance structures, identity constraints, and enforcement mechanisms defined within this Constitution, including Civic Identity Integrity (Section 12), Federation governance rules (Section 13), and Ecosystem-wide enforcement boundaries.
+
+            </span>
+        </div>
+
+        <!--02-AGE-OF-CITIZENSHIP-->
+
+        <div id="age-of-citizenship" class="cnstttn-content-body">
+            <span class="cnstttn-section-title"><strong>02. Age of Citizenship</strong></span>
+        </div>
+
+        <div class="cnstttn-content-body">
+            <span class="cnstttn-content-body-text">
+
+                To become an Asveoran (citizen of the Asveora Ecosystem), you must be at least 16 years of age and meet the minimum age of digital consent required in your jurisdiction. Where applicable law sets a higher minimum age, that higher requirement prevails without exception. The 16-year baseline applies only where it does not conflict with applicable legal requirements or stricter Network, Federation, System, Wheelcore, LandHub, or Profile Space policies.<br><br>
+
+                Individual Networks, Federations, Systems, Wheelcores, LandHubs, and Profile Spaces may impose stricter age or eligibility requirements at their discretion. Participants are responsible for verifying and complying with all applicable governance-layer rules before participation.<br><br>
+
+                If a participant is under the age of majority in their jurisdiction but meets the minimum threshold, participation is only permitted with verifiable consent from a parent or legal guardian. That guardian assumes full responsibility for compliance with this Constitution and all actions performed under associated AUID(s).<br><br>
+
+                By using Asveora, you affirm and represent the following:<br><br>
+
+                01. You meet or exceed all applicable age requirements under jurisdictional and governance-layer rules.<br>
+                02. You are legally permitted to enter into this agreement, or have obtained valid guardian consent where required.<br>
+                03. You are not prohibited from participation under applicable law or Ecosystem enforcement action.<br>
+                04. You are not currently suspended, restricted, or excluded from any Network, Federation, or Ecosystem function.<br>
+                05. If acting on behalf of an entity, you have authority to bind that entity to this Constitution.<br><br>
+
+                Age-based safety and content restrictions may vary across Networks and Federations. Participants must comply with the strictest applicable standard in any environment they enter.<br><br>
+
+                Serious violations involving minors, including exploitation, grooming, coercion, or exposure to Restricted Contexts, are strictly prohibited and subject to immediate enforcement under Network or Federation governance and applicable law.
+
+            </span>
+        </div>
+      
+        <!--03-OBLIGATIONS-->
+
+        <div id="agreements-obligations" class="cnstttn-content-body">
+            <span class="cnstttn-section-title"><strong>03. Agreements & Obligations Within Asveora and Beyond</strong></span>
+        </div>
+
+        <div class="cnstttn-content-body">
+            <span class="cnstttn-content-body-text">
+
+                Asveora is a decentralized civic Ecosystem that distributes operational responsibility across independent services, protocols, and infrastructure layers. Participation may involve external systems including identity providers, communication protocols, hosting services, storage systems, and federation-linked infrastructure.<br><br>
+
+                By using Asveora, you acknowledge that you are solely responsible for compliance with the terms, policies, and legal requirements of any external services you choose to use in connection with the Ecosystem. This includes identity systems, communication protocols, and decentralized infrastructure (including Matrix or equivalent systems).<br><br>
+
+                All Networks, Federations, Systems, Wheelcores, LandHubs, and Profile Spaces operate under independent governance rules, provided they do not conflict with this Constitution. Participation constitutes acceptance of those internal rules. All such structures must explicitly recognize this Constitution as the supreme Ecosystem governance framework.<br><br>
+
+            </span>
+        </div>
+
+        <div class="cnstttn-content-body">
+            <span class="cnstttn-content-body-text"><strong>Civic Safety & Mandatory Reporting Duties</strong></span>
+        </div>
+
+        <div class="cnstttn-content-body">
+            <span class="cnstttn-content-body-text">
+
+                As a condition of participation, all Asveorans are required to uphold civic safety standards protecting minors and vulnerable individuals across all Ecosystem structures.<br><br>
+
+                Mandatory civic safety obligations activate when behavior meets the Suspicion Threshold Standard or indicates exploitation, grooming, coercion, or exposure to Restricted Contexts.<br><br>
+
+                Required actions include:<br><br>
+
+                01. Preventing continued exposure where possible<br>
+                02. Refusing engagement in prohibited or exploitative interaction<br>
+                03. Preserving relevant evidence when safe<br>
+                04. Reporting through designated Network or Federation channels<br>
+                05. Escalating to external authorities where required by law<br><br>
+
+                These obligations apply uniformly across all Networks and Federations. Failure to comply, including concealment or facilitation, constitutes a severe violation of this Constitution.
+
+            </span>
+        </div>
+
+        <div class="cnstttn-content-body">
+            <span class="cnstttn-content-body-text"><strong>Definition of Restricted Contexts</strong></span>
+        </div>
+
+        <div class="cnstttn-content-body">
+            <span class="cnstttn-content-body-text">
+
+                “Restricted Contexts” refers to any communication, content, interaction, or directed behavior that is legally or developmentally inappropriate for individuals under the minimum age threshold defined in Section 2.<br><br>
+
+                Restricted Contexts include but are not limited to:<br><br>
+
+                01. Sexual content, sexual conversations, sexual roleplay, or sexualized interaction<br>
+                02. Explicit or implicit sexual material in any format, including AI-generated media<br>
+                03. Content involving drugs, alcohol, or other age-restricted substances or behaviors<br>
+                04. Facilitation, instruction, or encouragement of illegal or age-restricted activity<br>
+                05. Grooming, coercion, or attempts to establish inappropriate relationships<br>
+                06. Routing or directing minors to external adult-only spaces or content<br>
+                07. Any content classified as “Adult Only” under applicable law or widely recognized platform safety standards<br><br>
+
+                This definition applies across all Networks, Federations, Systems, Wheelcores, LandHubs, and Profile Spaces. No internal governance structure may weaken, reinterpret, or override this standard.
+
+            </span>
+        </div>
+
+        <div class="cnstttn-content-body">
+            <span class="cnstttn-content-body-text"><strong>Suspicion Threshold Standard</strong></span>
+        </div>
+
+        <div class="cnstttn-content-body">
+            <span class="cnstttn-content-body-text">
+
+                A “reasonable belief” or “reasonable suspicion” is established when an Asveoran, acting in good faith, observes behavior or receives credible information that would lead a reasonable person to conclude that a violation of age restrictions or Restricted Context rules may be occurring.<br><br>
+
+                Indicators may include but are not limited to:<br><br>
+
+                01. Self-disclosed or inconsistent age information suggesting underage status<br>
+                02. Behavioral patterns consistent with minor access to restricted spaces<br>
+                03. Direct engagement in or request for Restricted Contexts<br>
+                04. Credible third-party reports from other Asveorans<br>
+                05. Attempts to conceal identity or evade age verification in suspicious contexts<br><br>
+
+                Suspicion does not require definitive proof. It must, however, be based on observable behavior or credible reporting rather than speculation, bias, or abuse of reporting systems.<br><br>
+
+                Once triggered, Civic Safety obligations become active immediately, including restriction from prohibited engagement and mandatory reporting.
+
+            </span>
+        </div>
+
+        <div class="cnstttn-content-body">
+            <span class="cnstttn-content-body-text"><strong>Mandatory Reporting Channel Requirement</strong></span>
+        </div>
+
+        <div class="cnstttn-content-body">
+            <span class="cnstttn-content-body-text">
+
+                Every Network must maintain at least one clearly designated civic safety reporting channel within each governance or coordination hub. This may include support systems, moderation queues, designated reporting interfaces, or explicitly labeled reporting channels, provided the function is clearly identifiable.<br><br>
+
+                This requirement is mandatory and non-optional. Each Network, Federation, System, Wheelcore, LandHub, and Profile Space must ensure reporting access is continuously available and operational.<br><br>
+
+                This system exists to guarantee consistent enforcement of Civic Safety obligations and ensure reliable escalation pathways for Restricted Context violations and related safety concerns.
+
+            </span>
+        </div>
+
+        <div class="cnstttn-content-body">
+            <span class="cnstttn-content-body-text"><strong>Civic Escalation and Enforcement Hierarchy</strong></span>
+        </div>
+
+        <div class="cnstttn-content-body">
+            <span class="cnstttn-content-body-text">
+
+                Civic safety concerns follow a strict escalation chain:<br><br>
+
+                01. Local structure (Profile Space, Wheelcore, LandHub, System)<br>
+                02. Network administration<br>
+                03. Federation governance (if applicable)<br>
+                04. External legal authorities where required by law or severity<br><br>
+
+                Networks within Federations must notify Federation governance when escalation thresholds are met. Networks not part of a Federation escalate directly to external authorities where legally required.<br><br>
+
+                No Network or Federation may suppress, obstruct, or refuse escalation of credible civic safety concerns requiring external reporting.
+
+            </span>
+        </div>
+
+        <div class="cnstttn-content-body">
+            <span class="cnstttn-content-body-text"><strong>Civic Reporting Standards and Evidentiary Requirements</strong></span>
+        </div>
+
+        <div class="cnstttn-content-body">
+            <span class="cnstttn-content-body-text">
+
+                All reports submitted for civic safety review must include, where reasonably available, verifiable supporting evidence such as screenshots, video or audio recordings, message logs, system identifiers, timestamps, or platform references.<br><br>
+
+                Reports must include a structured description of events and a coherent timeline. Submissions lacking meaningful context or evidentiary support are not eligible for formal civic escalation.<br><br>
+
+                Unsupported accusations, single-sentence claims, or intentionally vague reports do not meet minimum civic reporting standards and will not be processed as valid escalation requests.<br><br>
+
+                This standard exists to preserve integrity of enforcement systems and prevent abuse of civic reporting mechanisms.
+
+            </span>
+        </div>
+
+        <div class="cnstttn-content-body">
+            <span class="cnstttn-content-body-text"><strong>Reporting System Integrity and Abuse Classification</strong></span>
+        </div>
+
+        <div class="cnstttn-content-body">
+            <span class="cnstttn-content-body-text">
+
+                False reporting, malicious reporting, or coordinated abuse of civic reporting systems is strictly prohibited.<br><br>
+
+                Such behavior is classified as Disruptive Activity under Section 8 and Malicious Activity under Section 16 when it is used to harass, manipulate governance systems, or interfere with legitimate enforcement processes.<br><br>
+
+                This includes knowingly false claims, coordinated report flooding, weaponized reporting campaigns, or misuse of safety infrastructure for retaliation or sabotage.<br><br>
+
+                Reporting systems exist exclusively for good-faith civic safety escalation.
+
+            </span>
+        </div>
+      
+        <!--04-PRIVACY-AND-SECURITY-->
+
+        <div id="privacy-security" class="cnstttn-content-body">
+            <span class="cnstttn-section-title"><strong>04. Privacy &amp; Security</strong>
+            </span>
+        </div>
+
+        <div class="cnstttn-content-body">
+            <span class="cnstttn-content-body-text">
+                Asveora operates as a decentralized civic ecosystem built on Networks, Federations, and independent infrastructure layers. Privacy and security within Asveora are not enforced through a single centralized data authority, but through structural design principles, identity integrity constraints, and user-controlled participation across systems.<br><br>
+
+                At the core of this model is the AUID (Asveora Unified Identity Descriptor), which represents a civic identity unit used for governance participation, voting weight, and identity resolution within and across Networks. AUID integrity is protected through ecosystem-wide rules defined in this Constitution, including identity consolidation, anti-duplication enforcement, and Federation-level coordination standards.<br><br>
+
+                Privacy in Asveora is primarily determined by the Network, Federation, or external protocol you choose to interact with. Each layer of the Ecosystem may implement its own data handling, storage, and communication policies. Asveorans are responsible for understanding the privacy and security implications of any external service, protocol, or infrastructure they use in connection with the Ecosystem.<br><br>
+
+                While Asveora establishes civic standards for safety and integrity, it does not rely on unnecessary centralized surveillance or mandatory data aggregation for participation. However, users should always assume that any digital communication system may involve third-party logging, routing, or storage depending on the underlying infrastructure they choose to use.<br><br>
+
+                <strong>Core Security and Operational Safety Principles</strong><br><br>
+
+                01. Use strong, unique authentication credentials for all systems connected to Asveora participation.<br>
+                02. Never share authentication credentials, private keys, or account access with others.<br>
+                03. Store sensitive credentials in secure, encrypted environments only.<br>
+                04. Treat all external links, services, and protocols as untrusted until verified.<br>
+                05. Verify HTTPS encryption and domain authenticity before entering sensitive data.<br>
+                06. Avoid interacting with suspicious or shortened links without validation.<br>
+                07. Do not disclose personal identifiers such as addresses, financial data, or device identifiers unless absolutely required and trusted.<br>
+                08. Use multi-factor authentication wherever available.<br>
+                09. Avoid unsecured or unknown public network infrastructure when handling sensitive activity.<br>
+                10. Maintain awareness of how personal data may be processed across Networks, Federations, and external systems.<br><br>
+
+                <strong>Identity Protection and AUID Security</strong><br><br>
+
+                AUIDs are civic identity units and must not be shared, transferred, or impersonated outside of authorized identity rules defined in Section 12. Any attempt to duplicate, spoof, or improperly associate an AUID is considered a violation of Civic Identity Integrity and may result in enforcement action at the Network or Federation level.<br><br>
+
+                <strong>External Systems and Third-Party Responsibility</strong><br><br>
+
+                Asveora interacts with external protocols, platforms, and infrastructure that are not controlled by the Ecosystem. These systems operate under their own privacy and security policies. Asveorans are responsible for reviewing and complying with those policies when engaging with external tools or services.<br><br>
+
+                <strong>Impersonation and Security Misrepresentation Warning</strong><br><br>
+
+                No legitimate Network, Federation, or Ecosystem authority will request sensitive personal information such as passwords, private keys, financial details, government IDs, or device-level identifiers. Any request for such information should be treated as malicious and reported through the appropriate civic reporting channels defined within the relevant Network or Federation structure.<br><br>
+
+                Security in Asveora is a shared responsibility between system design and user behavior, and all participants are expected to act with caution, awareness, and respect for identity integrity principles.
+            </span>
+        </div>
+      
+        <!--05-ONCE-FREE-->
+
+        <div id="once-free-always-free" class="cnstttn-content-body">
+            <span class="cnstttn-section-title"><strong>05. Once Free Always Free</strong>
+            </span>
+        </div>
+
+        <div class="cnstttn-content-body">
+            <span class="cnstttn-content-body-text">
+                Asveora is a public civic ecosystem designed to remain freely accessible for participation, governance, and community engagement. No individual, Network, Federation, or third party is permitted to license, sell, or restrict access to Asveora itself as a proprietary or paywalled system.<br><br>
+
+                Participation in Asveora, including access to civic participation tools, governance structures, and Ecosystem-level interactions, must not be contingent on payment, subscription fees, or mandatory commercial licensing agreements.<br><br>
+
+                Any attempt to present Asveora, its Networks, Federations, or constituent systems as requiring payment for entry or participation is strictly prohibited and must be reported through the appropriate civic reporting channels established within the relevant Network or Federation.<br><br>
+
+                Asveora prohibits exploitative or coercive monetization structures that interfere with civic access or participation. This includes but is not limited to forced paywalls, deceptive subscription gating, coercive microtransaction systems tied to participation, or disguised access fees presented as governance or membership requirements.<br><br>
+
+                While individual Networks or Federations may independently support optional funding mechanisms such as voluntary contributions, donations, or non-intrusive sponsorship models, such systems must never restrict access to core civic participation or governance rights within the Ecosystem.<br><br>
+
+                Asveora exists as a collectively maintained system, and its accessibility is preserved through its members rather than external commercialization.
+            </span>
+        </div>
+      
+        <!--06-DATA-OWNERSHIP-->
+
+        <div id="data-ownership-protections" class="cnstttn-content-body">
+            <span class="cnstttn-section-title"><strong>06. Data Ownership, DMCA Procedures, and Protections</strong>
+            </span>
+        </div>
+
+        <div class="cnstttn-content-body">
+            <span class="cnstttn-content-body-text">
+                Within the Asveora Ecosystem, Asveorans retain ownership and primary control over their own creations, communications, and data as they exist within the scope of the tools, Networks, and external services they choose to use. No centralized authority within Asveora claims unilateral ownership of user-generated content or personal data.<br><br>
+
+                All participation in Asveora is mediated through decentralized infrastructure layers, including Networks, Federations, Systems, Wheelcores, and LandHubs. Each of these may utilize independent hosting, storage, or communication services governed by their own operational policies. Asveorans are responsible for understanding how their data is handled at each layer they choose to engage with.<br><br>
+
+                The AUID (Asveora Unified Identity Descriptor) serves as the civic identity unit used for governance participation and identity integrity across the Ecosystem. While AUID-linked activity may be indexed or referenced for civic functionality, ownership of content and data remains with the originating Asveoran subject to the rules of the relevant Network or Federation.<br><br>
+
+                Asveora does not sell user data and does not operate as a centralized data brokerage system. However, content shared through external infrastructure or third-party services remains subject to the privacy and storage policies of those systems.<br><br>
+
+                Asveora operates in compliance with applicable intermediary liability frameworks, including Section 230 of United States law, where relevant, and functions primarily as a civic and indexing layer rather than a centralized content publisher.<br><br>
+
+                Networks and Federations may index or reference user-generated content for civic, organizational, or governance purposes. Where such content is alleged to infringe intellectual property rights, a valid DMCA notice may be submitted for review and processing by the relevant Network or Ecosystem-level reporting channels.<br><br>
+              
+				Ownership of data, infrastructure, repositories, systems, or operational resources does not inherently grant governance indexing authority, constitutional authority, SHCWU allocation rights, or civic control over Networks, Federations, or Ecosystem governance processes.
+            </span>
+        </div>
+
+        <div class="cnstttn-content-body">
+            <span class="cnstttn-content-body-text">
+                <strong>DMCA Notice Requirements</strong><br><br>
+
+                A valid copyright infringement notice must include sufficient information to allow identification, verification, and processing of the claim. Required elements include:<br><br>
+
+                01. A physical or electronic signature of the copyright owner or authorized agent<br>
+                02. Identification of the original copyrighted work<br>
+                03. Identification of the allegedly infringing material (including up to 10 direct URLs where applicable)<br>
+                04. Contact information including full name, address, telephone number, and email<br>
+                05. A good faith statement that the disputed use is not authorized<br>
+                06. A statement under penalty of perjury that the information is accurate and the claimant is authorized to act<br>
+                07. Supporting documentation verifying ownership or authorization<br>
+                08. A valid organizational or domain-based email address where applicable<br>
+                09. Submission through the official reporting channel designated by the relevant Network or Federation<br><br>
+
+                Submissions that are incomplete, abusive, or outside recognized reporting channels may not be processed. Only claims submitted through valid civic reporting infrastructure are eligible for review.<br><br>
+
+                Asveora does not process personal disputes or informal requests under DMCA procedures; notices must originate from rights holders or authorized agents acting in an official capacity.
+            </span>
+        </div>
+      
+        <!--07-HUMAN-RIGHTS-->
+
+        <div id="human-rights-statement" class="cnstttn-content-body">
+            <span class="cnstttn-section-title"><strong>07. Human Rights Statement</strong>
+            </span>
+        </div>
+
+        <div class="cnstttn-content-body">
+            <span class="cnstttn-content-body-text">
+                Asveora is founded on the principle that all individuals participating within the Ecosystem across Networks, Federations, Systems, Wheelcores, LandHubs, and related civic structures are entitled to fundamental respect, dignity, and equal consideration regardless of personal identity, including but not limited to sex, gender, race, religion, nationality, ethnicity, language, geographic origin, or social background.<br><br>
+
+                Discrimination, harassment, or dehumanization of any individual or group is strictly prohibited within the Asveora Ecosystem. This includes but is not limited to hate speech, discriminatory conduct, targeted harassment, slurs, xenophobia, racism, sexism, homophobia, transphobia, or any form of identity-based hostility or exclusion.<br><br>
+
+                All Asveorans are required to uphold a baseline standard of civic respect in all interactions. This obligation applies across all AUID-linked participation and extends to all governance, communication, and community environments regardless of Network or Federation affiliation.<br><br>
+
+                While Asveora provides structured governance systems for enforcement and civic adjudication, the Human Rights Statement establishes a non-negotiable ethical foundation for participation within the Ecosystem. No Network, Federation, or subordinate governance structure may override or nullify these protections.<br><br>
+
+                All participants are expected to recognize the humanity of others within digital interaction spaces and act in a manner consistent with mutual respect, safety, and civic integrity.
+            </span>
+        </div>
+
+		<!--08-PROHIBITION-OF-DISRUPTIVE-ORGANIZATION-->
+      
+		<div id="prohibition-of-disruptive-organization" class="cnstttn-content-body">
+			<span class="cnstttn-section-title"><strong>08. Prohibition of Disruptive Organization</strong>
+			</span>
+		</div>
+		<div class="cnstttn-content-body">
+			<span class="cnstttn-content-body-text">
+
+              Asveorans may not engage in, promote, coordinate, or facilitate organizational structures or coordinated activities that are intended to destabilize civic integrity, manipulate governance outcomes, or generate harm within a Network or Federation environment.<br><br>
+
+              This includes but is not limited to brigading, astroturfing, coordinated harassment campaigns, political gladiatorism, reaction bait structures, recruitment or deployment of internet-based attack groups, unsolicited mass coordination efforts, shock-based mobilization tactics, flash mobs intended to disrupt civic order, and any coordinated action designed to overwhelm or distort normal civic participation.<br><br>
+
+              The use of Asveora infrastructure to incite unrest, simulate warfare between entities, coordinate raids (whether digital or physical), execute raids, or facilitate cross-network disruption is strictly prohibited. This applies equally to symbolic, ironic, or “parody” constructions when their functional effect results in coordinated harm or destabilization.<br><br>
+
+              Prohibited organizational forms also include communities or structures that exist primarily to manufacture harassment, amplify outrage cycles, generate harassment targets, or create environments of sustained psychological distress. This includes so-called drama hubs, harassment collectives, and systems designed to bypass normal moderation or civic accountability processes.<br><br>
+
+              Doxxing in any form is strictly prohibited, including the aggregation, correlation, or repackaging of publicly available data for malicious or coercive intent.<br><br>
+
+              Enforcement of this section is evaluated within the context of Civic Identity Integrity rules, including the principle that one human being corresponds to one civic influence unit per Network or Federation context. Coordinated multi-AUID influence manipulation may be treated as an aggravating factor under governance review processes.<br><br>
+
+              Nothing in this section restricts legitimate civic discussion, disagreement, protest, or democratic participation conducted within the bounds of due process, transparency, and non-coercive behavior.
+
+			</span>
+		</div>
+      
+		<!--09-APPROPRIATE-USERNAMES-AND-PIKS-->
+      
+		<div id="appropriate-usernames-and-piks" class="cnstttn-content-body">
+			<span class="cnstttn-section-title"><strong>09. Appropriate Usernames and Primary Identity Keys (PIKs)</strong>
+			</span>
+		</div>
+		<div class="cnstttn-content-body">
+			<span class="cnstttn-content-body-text">
+
+              Usernames and Primary Identity Keys (PIKs) function as civic identity markers within Asveora and must remain clear, non-deceptive, and appropriate for participation within a shared civic environment.<br><br>
+
+              While Asveorans may customize their username within the allowed character constraints, and may be assigned or generate PIK structures according to Network or Federation protocols, neither usernames nor PIKs may contain slurs, hate speech, extremist references, threats, or content referencing violence, harassment, or real-world tragedies in a manner that could reasonably be interpreted as endorsing or glorifying harm.<br><br>
+
+              Neither usernames nor PIKs may be constructed or modified with the intent to impersonate individuals, organizations, governance bodies, or civic roles within Asveora or external systems. Any attempt to create misleading civic identity signals, including false authority claims, deceptive affiliation markers, or synthetic civic legitimacy, is strictly prohibited.<br><br>
+
+              Where ambiguity, misuse, or potential identity manipulation is identified, governance or moderation bodies within the relevant Network or Federation may require modification, suspension, or regeneration of either the username or PIK to preserve civic clarity, trust, and system integrity.
+
+			</span>
+		</div>
+
+		<!--10-CONTENT-SHARING-EXPECTATIONS-->
+      
+		<div id="content-sharing-expectations" class="cnstttn-content-body">
+			<span class="cnstttn-section-title"><strong>10. Content Sharing Expectations</strong>
+			</span>
+		</div>
+
+		<div class="cnstttn-content-body">
+			<span class="cnstttn-content-body-text">
+
+				<strong>Core Principle of Content Responsibility</strong><br>
+				All Asveorans are responsible for the content they create, share, publish, or distribute within the Asveora Ecosystem. Content includes but is not limited to text, media, code, links, profiles, digital assets, and any other form of communicable or interactive material. Participation in the Ecosystem implies agreement to maintain responsible and intentional content practices in alignment with civic integrity standards.<br><br>
+
+				<strong>Prohibited Content and Harmful Conduct</strong><br>
+				Content that promotes, facilitates, or encourages hate speech, harassment, fraud, scams, violent extremism, illegal activity, self-harm, or graphic shock material is strictly prohibited within Asveora. Content intended to manipulate, mislead, or destabilize civic processes, including governance participation or identity systems, is also prohibited under Civic Integrity rules.<br><br>
+
+				<strong>Governance Integrity and Civic Safety</strong><br>
+				Content shared within Asveora must not be used to distort, interfere with, or fraudulently influence democratic participation, including voting processes, jury deliberations, or civic review proceedings. This includes coordinated misinformation, deceptive civic signaling, or any undisclosed multi-AUID coordination intended to gain unfair civic influence. All civic influence must remain consistent with the principle that one human being corresponds to one civic influence unit within a Network or Federation context.<br><br>
+
+				<strong>Identity Transparency and AI-Generated Content</strong><br>
+				All AI-generated content must be clearly labeled as such when shared within Asveora. It is strictly prohibited to misrepresent AI-generated content as human-created content or to use AI-generated material in a way that intentionally deceives, impersonates, or manipulates other Asveorans. AI-generated content that is used for harm, deception, or exploitation is not permitted under any circumstance.<br><br>
+
+				<strong>Content Accessibility and Safety Requirements</strong><br>
+				Any content that contains adult themes, explicit material, or potentially sensitive subject matter must be appropriately gated using required age verification or access control mechanisms as defined by the relevant Network or Federation. Asveora requires that such content not be exposed to users who have not met applicable age or consent requirements.<br><br>
+
+				<strong>Network and Federation Moderation Alignment</strong><br>
+				Individual Networks and Federations may implement additional content moderation rules consistent with their governance structures. Such rules must remain aligned with Ecosystem-wide principles of civic integrity, safety, transparency, and anti-manipulation standards. Content moderation actions are internal governance mechanisms and must not contradict overarching constitutional protections or rights established within Asveora.<br><br>
+
+				<strong>Shared Civic Responsibility</strong><br>
+				Asveora encourages Asveorans to act with care, accuracy, and respect when sharing content, recognizing that shared information contributes to the broader civic and cultural environment of the Ecosystem. While enforcement is governed through structured civic systems, maintaining trust, clarity, and informational integrity is a shared responsibility of all participants.
+
+			</span>
+		</div>
+
+		<!--11-DEMOCRATIC-RIGHTS-->
+      
+		<div id="democratic-rights-network-removals" class="cnstttn-content-body">
+			<span class="cnstttn-section-title"><strong>11. Democratic Rights and Network Removals</strong>
+			</span>
+		</div>
+		<div class="cnstttn-content-body">
+			<span class="cnstttn-content-body-text">
+              Asveora is built upon the model of a Decentralized Democratic Constitutional Republic (DDCR). This means that executive direction within the Asveora Ecosystem is determined through political discourse and the voting rights of Asveorans within their respective Networks, including wheelcores, landhubs, systems, and Federations. Democratic participation is a core civic right granted to Asveorans as members of the networked society.<br><br>
+
+              <strong>Network, Federation, and Ecosystem Authority Hierarchy</strong><br>
+              The Asveora Ecosystem operates as a layered governance structure with clearly defined authority domains. The Ecosystem represents the highest conceptual and infrastructural layer and contains all Networks, Federations, and subordinate systems. Networks function as the primary civic jurisdiction where most governance, participation, and enforcement activities occur. Federations are formal governance unions between Networks that establish unified civic rules, shared governance contexts, and coordinated enforcement standards across all participating Networks. Wheelcores, landhubs, systems, and other substructures operate under the authority of their parent Network unless explicitly redefined by Federation-level agreements. Authority for governance enforcement flows downward through these layers, while civic legitimacy and democratic authority flow upward from individual Asveorans through their respective Networks and Federations.<br><br>
+
+              Asveorans have the right to vote on all eligible and properly constituted governance matters within Asveora. External Visitors do not possess voting rights, as they are not members or citizens of the Asveora Network. No person or entity within Asveora may cast a vote, represent, or exercise governance influence on behalf of any External Visitor.<br><br>
+
+              Voting power within Asveora is governed by the principle that <strong>one human being corresponds to one civic influence unit within any given Network or Federation governance domain</strong>, as defined under Civic Identity Integrity rules. When Networks operate independently, this principle applies per Network. When Networks are part of a Federation, governance contexts are unified under Federation civic integrity rules, ensuring that no individual human may accumulate additional civic influence through multiple AUID representations within the same governance domain.<br><br>
+
+              If an issue arises within Asveora, including but not limited to Terms of Service violations, harassment, fraud, or other forms of misconduct, an Asveoran may file a formal complaint within the designated civic coordination and governance hub of the relevant Network (for the <a href="https://www.asveora.social/"><span class="cnstttn-link-text">asveora.social</span></a> Network this is the Asveora Network Plaza Stoat server which can be found <a href="https://stt.gg/5wB2Zzb0"><span class="cnstttn-link-text">here</span></a>) in which the issue occurred. Depending on the nature of the issue, they may also be advised to report it to the relevant platform provider or infrastructure host.<br><br>
+
+              Filing a complaint may initiate a formal civic review process. Every Asveoran is entitled to due process, and any administrative or disciplinary action must follow the outcome of a structured review or court proceeding where applicable.<br><br>
+
+              If an Asveoran is summoned to court, they are required to appear within the timeframe specified in the summons. A court summons constitutes a mandatory civic directive and applies only to members of the issuing Network. Failure to appear (FTA) will result in a designated grace period after which additional administrative action may be taken, including potential network restrictions or removal. Enforcement authority does not extend outside Network boundaries except where explicitly governed by Federation agreements.<br><br>
+
+              Court proceedings exist to ensure fairness, accountability, and accurate assessment of reported issues. These proceedings may involve participation from relevant assemblies within Asveora and are resolved through a composite jury model intended to preserve democratic legitimacy. In urgent or high-severity cases, proceedings may be expedited under the authority of designated governance assemblies to maintain network safety and integrity.<br><br>
+
+              The governing systems of Asveora are separate from the legal systems of real-world jurisdictions. A breach of Asveora’s Constitution may result in removal from the network without implying violation of real-world law. However, if conduct within Asveora involves violations of applicable local or international law, Asveora may cooperate with appropriate authorities where required.<br><br>
+
+              The democratic right to vote may be temporarily suspended during active trials or civic review processes. Network removal is considered a rare outcome and is determined through network-wide governance review. Appeals may be submitted following established procedures, though resolution timelines may vary.<br><br>
+
+              Removal from Asveora does not prevent independent deployment of the Asveora framework, as the project remains open source. However, such individuals or entities will no longer have access to the asveora.social ecosystem or its associated governance structures.<br><br>
+
+              External Visitors cannot be summoned under any circumstances, as they do not hold civic membership within Asveora. Therefore, Asveora does not exercise direct governance authority over them. If an External Visitor violates Asveora’s Terms of Service, the responsibility for enforcement lies with the Asveoran hosting or enabling access within that space. Violations of external platform policies must be reported to the relevant platform or infrastructure provider responsible for moderation and trust enforcement.
+			</span>
+		</div>
+      
+        <!--12-CIVIC-IDENTITY-INTEGRITY-AUID-OWNERSHIP-AND-VOTING-CONSOLIDATION-->
+
+        <div id="civic-identity-integrity" class="cnstttn-content-body">
+            <span class="cnstttn-section-title"><strong>12. Civic Identity Integrity, AUID Ownership, and Voting Consolidation</strong>
+            </span>
+        </div>
+
+        <div class="cnstttn-content-body">
+            <span class="cnstttn-content-body-text">
+
+              <strong>Core Civic Identity Principle</strong><br>
+              The Asveora Ecosystem operates under a strict one-human, one-civic-weight principle. Each human participant is represented through a Single Human Civic Weight Unit (SHCWU) known as an AUID (Asveora Unified Identity Descriptor). Civic influence is derived exclusively from this singular human identity mapping, regardless of the number of Profiles, Networks, or operational presences associated with that individual.<br><br>
+
+              <strong>Identity Resolution Rule (Canonical Standard)</strong><br>
+              A human may operate multiple Profiles, Communications Profiles, or Network presences; however, all must resolve to a single AUID for all governance functions. Where multiple AUIDs are determined—through verification, adjudication, behavioral linkage, or disclosure—to represent the same human, they must be consolidated into a single civic identity unit across all Networks and Federations.<br><br>
+
+              <strong>Voting Consolidation Principle</strong><br>
+              Civic influence, voting weight, and governance participation are computed strictly at the level of the human, not the account or profile. Any attempt to fragment, duplicate, or multiply civic influence is invalid and subject to enforcement.<br><br>
+
+              <strong>AUID Integrity and Anti-Duplication Rule</strong><br>
+              No individual may maintain multiple AUIDs for the purpose of increasing civic influence or bypassing governance constraints. Detected violations must result in consolidation of identity and may trigger additional enforcement actions proportional to severity and intent.<br><br>
+
+              <strong>Governance Scope Enforcement</strong><br>
+              All Networks and Federations are required to enforce AUID resolution rules within their jurisdiction. Civic identity fragmentation is prohibited across all governance scopes.<br><br>
+
+              <strong>Communications Profile Separation Principle</strong><br>
+              AUIDs represent civic identity only. Communications Profiles and operational systems may exist independently but must always resolve back to a single AUID for governance actions.
+
+            </span>
+        </div>
+      
+        <!--13-FEDERATION-MEMBERSHIP-INTEGRITY-TRANSITION-WINDOWS-COOLDOWNS-->
+
+        <div id="federation-membership-integrity" class="cnstttn-content-body">
+            <span class="cnstttn-section-title"><strong>13. Federation Membership Integrity, Transition Windows, and Participation Cooldowns</strong>
+            </span>
+        </div>
+
+        <div class="cnstttn-content-body">
+            <span class="cnstttn-content-body-text">
+
+              <strong>Federation Definition and Formal Structure</strong><br>
+              A Federation is a formally declared alliance between two or more Networks within the Asveora Ecosystem. Federations do not exist through informal association, implied coordination, or behavioral alignment. They exist only through explicit governance declaration and are dissolved only through formal recorded termination.<br><br>
+
+              <strong>Mandatory Formation and Dissolution Validation</strong><br>
+              All Federation lifecycle changes, including creation, modification, and dissolution, require full governance validation and system-wide recording. No Federation state change is valid until confirmed and entered into the official civic record.<br><br>
+
+              <strong>Identity Resolution Compliance (Federation Scope)</strong><br>
+              All Federation-level governance must comply with Section 12. Civic influence must resolve to a single human per SHCWU. Where duplication is detected, consolidation is mandatory across all Federation governance functions including voting, jury participation, and representation limits.<br><br>
+
+              <strong>Transition Windows and Governance Stability</strong><br>
+              When a Network enters or exits a Federation, a defined transition window of seven (7) days applies during which governance state remains stable and protected. This prevents manipulation of active votes, ongoing proceedings, or real-time governance outcomes.<br><br>
+
+              <strong>Exit Cooldown and Re-Entry Restriction</strong><br>
+              After exiting a Federation, a Network must observe a mandatory cooldown period of thirty (30) days before joining or rejoining any Federation. This prevents rapid cycling or strategic instability.<br><br>
+
+              <strong>Re-Entry Review Requirement</strong><br>
+              Following cooldown, re-entry into a Federation may require governance review to ensure alignment with Ecosystem stability standards.<br><br>
+
+              <strong>Separation from External Legal Systems</strong><br>
+              Federations exist exclusively within the Asveora Ecosystem and do not create or imply external legal jurisdiction.
+
+            </span>
+        </div>
+
+        <!--14-ACCESSING-PROTOCOLS-STAYING-SAFE-->
+
+        <div id="accessing-protocols-staying-safe" class="cnstttn-content-body">
+            <span class="cnstttn-section-title"><strong>14. Accessing Protocols &amp; Staying Safe</strong>
+            </span>
+        </div>
+
+        <div class="cnstttn-content-body">
+            <span class="cnstttn-content-body-text">
+
+                <strong>General Protocol Access and Network Neutrality</strong><br>
+                The Asveora Ecosystem operates across multiple communication protocols, verification systems, and community coordination environments depending on Network or Federation configuration. No single protocol defines or contains the full scope of Asveora communication or civic infrastructure.<br><br>
+
+                <strong>External Protocol Awareness (Including Decentralized Systems)</strong><br>
+                Decentralized communication protocols, including Matrix-based systems and similar federated networks, may be used within or alongside Asveora Networks. These systems provide flexibility and interoperability but may also increase exposure to unverified or malicious actors due to open participation structures. Users must exercise caution when interacting with unknown identities, rooms, or services.<br><br>
+
+                <strong>Generalized Safety Principle</strong><br>
+                Risks such as impersonation, fraud, social engineering, and malicious coordination exist across all communication protocols, not only decentralized systems. While heightened caution is recommended in open or federated environments, all platforms require consistent vigilance and verification practices.<br><br>
+
+                <strong>Identity Resolution Rule (Cross-Protocol Consistency)</strong><br>
+                All identity interactions across any protocol must ultimately resolve to a single AUID under Section 12. Protocol-specific accounts, communication handles, or external identities do not constitute separate civic identities and cannot be used to increase, duplicate, or fragment civic influence within the Ecosystem.<br><br>
+
+                <strong>Trust and Verification Boundaries</strong><br>
+                Asveorans should rely on official Network or Federation verification systems when confirming identity prior to engaging in sensitive communication, governance activity, or civic coordination. Unverified or unexpected contact should be treated as potentially unsafe until validated through recognized verification channels.<br><br>
+
+                <strong>Security and Impersonation Warnings</strong><br>
+                No legitimate representative of Asveora will request sensitive personal information through informal or unsolicited communication channels. Any such request should be treated as impersonation and reported immediately through appropriate governance or support systems.<br><br>
+
+                <strong>Incident Reporting</strong><br>
+                Suspicious activity must be reported through the appropriate Network or Federation governance channels, and where applicable, through protocol-native reporting tools. Reports should include sufficient context and evidence to enable verification and response.
+
+            </span>
+        </div>
+      
+        <!--15-TRANSFER-AND-BACKUP-OF-COMMUNICATIONS-PROFILE-->
+
+        <div id="transfer-and-backup-communications-profile" class="cnstttn-content-body">
+            <span class="cnstttn-section-title"><strong>15. Transfer &amp; Backup of Communications Profile</strong>
+            </span>
+        </div>
+
+        <div class="cnstttn-content-body">
+            <span class="cnstttn-content-body-text">
+
+                <strong>Core Principle of Profile Integrity</strong><br>
+                A Communications Profile within Asveora represents an operational layer of an Asveoran’s presence within a Network or Federation. In alignment with Section 12 (Civic Identity Integrity, AUID Ownership, and Voting Consolidation), all Communications Profiles must ultimately resolve to a single Civic Identity Unit (AUID) for all governance functions, including voting, jury participation, and civic influence calculations.<br><br>
+
+                <strong>Multiple Profiles and Administrative Boundaries</strong><br>
+                An Asveoran may maintain multiple Communications Profiles across Networks, Systems, or protocols for functional, operational, or organizational purposes. However, these profiles do not constitute independent civic identities. All profiles must remain permanently linked to a single AUID and must not be used to bypass identity consolidation rules, governance limits, or civic participation constraints defined in Section 12.<br><br>
+
+                <strong>Transfer Conditions and Identity Continuity</strong><br>
+                Communications Profiles may be transferred between devices, systems, or Networks where identity continuity is preserved. A transfer does not create, duplicate, or fragment civic identity. Any attempt to use transfer mechanisms to split identity, multiply governance influence, or evade civic constraints is a violation of Section 12 and is subject to enforcement action.<br><br>
+
+                <strong>Backup Requirements and Recovery Integrity</strong><br>
+                Asveorans are responsible for maintaining secure backups of their Communications Profiles. Backup systems must preserve access continuity without enabling duplication of civic identity. Loss of access does not result in loss of AUID, and recovery processes must restore the original identity rather than generate new civic entities.<br><br>
+
+                <strong>Cross-Network and Federation Handling</strong><br>
+                Within Federations, Communications Profiles may be recognized across member Networks for continuity and interoperability. However, all cross-Network recognition remains subject to Section 13 Federation Integrity rules and Section 12 identity consolidation requirements. No Federation or Network may interpret profile transfer as creating additional civic influence units.<br><br>
+
+                <strong>Security, Misuse Prevention, and Enforcement</strong><br>
+                Any attempt to exploit profile transfer, backup, or recovery systems to create artificial identities, duplicate civic participation, or bypass governance limitations is strictly prohibited. Violations may result in identity consolidation enforcement, civic review, suspension of participation privileges, or other governance actions under applicable Network or Federation procedures.
+
+            </span>
+        </div>
+      
+        <!--16-MALICIOUS-LINKS-MALWARE-AND-ATTACKS-->
+
+        <div id="malicious-links-malware-attacks" class="cnstttn-content-body">
+            <span class="cnstttn-section-title"><strong>16. Malicious Links, Malware, &amp; Attacks</strong>
+            </span>
+        </div>
+
+        <div class="cnstttn-content-body">
+            <span class="cnstttn-content-body-text">
+
+                <strong>Core Security Principle</strong><br>
+                The Asveora Ecosystem prohibits any action intended to compromise the security, integrity, identity, or functionality of users, systems, Networks, Federations, or associated infrastructure. This includes the creation, distribution, facilitation, or execution of malicious software, exploitative code, or harmful digital activity of any kind.<br><br>
+
+                <strong>Prohibited Malicious Activities</strong><br>
+                Strictly prohibited behaviors include, but are not limited to: phishing attempts, credential harvesting, IP tracking or extraction for malicious purposes, ransomware deployment, cryptojacking, man-in-the-middle (MITM) attacks, cross-site scripting (XSS), cross-site request forgery (CSRF), SQL injection, remote code execution exploits, unauthorized surveillance or interception, social engineering intended to extract sensitive data, and any other form of digital intrusion, manipulation, or system compromise.<br><br>
+
+                <strong>Identity and Civic Integrity Protection</strong><br>
+                Any attempt to use malicious tools, exploits, or attacks to interfere with AUID integrity, Communications Profiles, voting systems, or identity resolution mechanisms defined in Section 12 (Civic Identity Integrity, AUID Ownership, and Voting Consolidation) constitutes a direct violation of Ecosystem civic security principles. Such actions may result in immediate restriction from governance participation systems and related civic functions.<br><br>
+
+                <strong>Cross-Network and Federation Scope</strong><br>
+                Malicious activity is strictly prohibited across all Networks and Federations within the Asveora Ecosystem. Enforcement applies within each Network or Federation according to their governance structures. Where Federations exist, coordinated enforcement actions may be executed under agreed Federation security protocols. No Network or Federation may authorize, ignore, or normalize malicious activity under any circumstance.<br><br>
+
+                <strong>Reporting and Response</strong><br>
+                Asveorans are encouraged to report suspected malicious activity through their respective Network’s designated civic reporting channels. Depending on severity, incidents may trigger technical mitigation, civic review, or disciplinary processes, including suspension or removal from Network participation.<br><br>
+
+                <strong>Enforcement and Consequences</strong><br>
+                Violations of this section constitute severe breaches of Ecosystem trust and security. Consequences may include immediate loss of access to affected systems, civic participation restrictions, Network-level bans, or Federation-level enforcement actions. Repeated or coordinated malicious activity may be escalated to full Ecosystem governance review procedures.
+
+            </span>
+        </div>
+      
+		<!--17-BUYING-SELLING-SERVICES-MARKETPLACE-->
+      
+		<div id="services-marketplace" class="cnstttn-content-body">
+			<span class="cnstttn-section-title"><strong>17. Buying &amp; Selling in the Services Marketplace</strong>
+			</span>
+		</div>
+
+		<div class="cnstttn-content-body">
+			<span class="cnstttn-content-body-text">
+
+				Participation in the Asveora Services Marketplace is restricted to verified members of the relevant Network or Federation in which the transaction occurs. External Visitors may not engage in buying, selling, or transactional coordination within the Marketplace layer.<br><br>
+
+				The Services Marketplace operates as a discovery and coordination layer for independent third-party providers. Asveora does not act as a seller, buyer, payment processor, escrow provider, or contractual counterparty in any transaction. All service providers operate independently and are solely responsible for the fulfillment, quality, legality, and tax obligations of their offerings.<br><br>
+
+				All marketplace activity must be reported or indexed through the designated civic coordination or reporting channel of the relevant Network. Asveora retains no custodial responsibility over transactions and provides no financial guarantees, protections, or dispute resolution services beyond internal civic fraud review when applicable.<br><br>
+
+				Fraud, impersonation, or deceptive listing practices are considered violations of Civic Integrity rules and may result in removal from marketplace visibility or broader Network enforcement actions. Sellers and providers are subject to verification processes defined by their respective Network or Federation.<br><br>
+
+				Payment methods, tax handling, and financial compliance are the sole responsibility of the service provider and the user engaging them. Asveora does not process taxes, payments, or financial settlements in any capacity.<br><br>
+
+				Cryptocurrency, NFTs, and other blockchain-based or tokenized assets are not permitted as payment mechanisms within the Services Marketplace. Listings requesting such forms of payment may be removed to maintain transparency, stability, and regulatory clarity.
+
+			</span>
+		</div>
+      
+        <!--18-ADVERTISEMENTS-PAYWALLS-EXTERNAL-MARKETS-->
+
+        <div id="advertisements-paywalls-external-marketplaces" class="cnstttn-content-body">
+            <span class="cnstttn-section-title"><strong>18. Advertisements, Paywalls, &amp; External Marketplaces</strong>
+            </span>
+        </div>
+
+        <div class="cnstttn-content-body">
+            <span class="cnstttn-content-body-text">
+
+                Advertisements within the Asveora Ecosystem must remain non-invasive, clearly labeled, and must not obstruct, manipulate, or degrade access to civic, social, or informational functions. Any form of deceptive, coercive, or disruptive advertising is strictly prohibited under Civic Integrity standards.<br><br>
+
+                All advertisements, sponsorships, and promotional placements must be explicitly disclosed and clearly distinguishable from civic or user-generated content. Content that imitates official civic communication, governance messaging, or Network-level notices while serving commercial intent is prohibited.<br><br>
+
+                Paywalls that restrict access to core civic participation, governance mechanisms, identity systems, or essential Ecosystem functionality are not permitted. Voluntary support models such as donations or optional contributions are allowed only when they do not create barriers to civic access or participation rights.<br><br>
+
+                External marketplaces may be referenced, indexed, or linked within Asveora, but they exist entirely outside the governance, enforcement, identity, and liability boundaries of the Ecosystem. External systems do not inherit Asveora civic status and must not be represented as internal Networks, Federations, or civic structures.<br><br>
+
+                Asveora does not endorse, operate, control, or guarantee any external goods, services, transactions, or platforms. It does not receive commissions, fees, or financial compensation from external marketplaces, advertisers, or third-party providers under any circumstances.<br><br>
+
+                Any attempt to disguise external commercial systems as internal civic infrastructure, or to route users into misleading or impersonated Ecosystem spaces for commercial gain, is considered a violation of Civic Integrity rules and may trigger reporting and enforcement procedures under Section 16 and Section 8.
+
+            </span>
+        </div>
+      
+		<!--19-IMPERSONATION-AND-BADGES-->
+      
+		<div id="impersonation-and-badges" class="cnstttn-content-body">
+			<span class="cnstttn-section-title"><strong>19. Impersonation &amp; Badges</strong>
+			</span>
+		</div>
+
+		<div class="cnstttn-content-body">
+			<span class="cnstttn-content-body-text">
+
+				Impersonation of individuals, organizations, Networks, Federations, governance bodies, or any civic entities within the Asveora Ecosystem is strictly prohibited. This includes any attempt to create misleading identity signals, simulate authority, or falsely imply affiliation, endorsement, or representation of any real or constructed entity within or outside Asveora.<br><br>
+
+				This prohibition extends to any use of names, visual identity elements, descriptors, or structural cues intended to confuse, mislead, or falsely establish legitimacy within civic, social, or governance contexts. Identity deception that undermines trust in the Ecosystem’s civic systems is considered a serious violation of Civic Identity Integrity principles.<br><br>
+
+				Badges within Asveora function as optional identity and contribution indicators and must reflect truthful participation or verified status where applicable. Users may not assign themselves operational, governance, contributor, or verification badges unless they have legitimately earned or been granted such designation through recognized processes within the relevant Network or Federation.<br><br>
+
+				Badges are intended as signals of participation, not authority fabrication. Misuse of badge systems to simulate governance authority, inflate influence, or misrepresent civic role is strictly prohibited and may result in removal of badge privileges or additional civic review actions.<br><br>
+
+				Asveorans who wish to display contributor or operational badges are encouraged to participate in the Ecosystem through legitimate contribution pathways, including development, moderation assistance, community support, or other recognized civic roles. Engagement in these pathways ensures that identity signals remain transparent, earned, and aligned with Ecosystem trust standards.
+
+			</span>
+		</div>
+      
+        <!--20-AI-GENERATED-CONTENT-->
+
+        <div id="ai-generated-content" class="cnstttn-content-body">
+            <span class="cnstttn-section-title"><strong>20. AI Generated Content</strong>
+            </span>
+        </div>
+
+        <div class="cnstttn-content-body">
+            <span class="cnstttn-content-body-text">
+
+                <strong>Transparency and Disclosure Requirement</strong><br>
+                The Asveora Ecosystem requires clear transparency regarding artificial intelligence usage. Any AI-generated or AI-assisted content must be explicitly labeled as such.<br><br>
+
+                <strong>Integrity of Representation</strong><br>
+                AI-generated content must never be misrepresented as human-created or attributed to any real Asveoran, AUID, organization, or civic entity. Misrepresentation is a violation of Civic Identity Integrity under Section 12.<br><br>
+
+                <strong>Prohibition of Deceptive or Harmful AI Use</strong><br>
+                AI-generated content intended to deceive, impersonate, manipulate, or cause harm is strictly prohibited. This includes deepfakes, fabricated events, and synthetic media presented as real or contextually misleading.<br><br>
+
+                <strong>Parody and Synthetic Expression Exceptions</strong><br>
+                AI-generated parody or satire is permitted only when clearly labeled and not used to deceive, manipulate civic processes, or misrepresent identity or events.<br><br>
+
+                <strong>Civic Safety and Enforcement Alignment</strong><br>
+                Violations may result in content removal, civic restriction, or Network enforcement action under applicable governance procedures.
+
+            </span>
+        </div>
+      
+		<!--21-LIABILITY-DISCLAIMER-->
+      
+		<div id="liability-disclaimer" class="cnstttn-content-body">
+			<span class="cnstttn-section-title"><strong>21. Liability Disclaimer and Responsibility Boundaries</strong>
+			</span>
+		</div>
+
+		<div class="cnstttn-content-body">
+			<span class="cnstttn-content-body-text">
+
+				<strong>Core Non-Liability Definition</strong><br>
+				The Asveora Ecosystem functions as an open civic and technological framework composed of Networks, Federations, and community-operated systems. Asveora itself does not assume liability for actions, content, decisions, or governance participation undertaken by Asveorans within any Network or associated structure. Responsibility for AUID activity, identity usage, and civic participation remains solely with the individual Asveoran or the entity operating the relevant AUID.<br><br>
+
+				<strong>Civic System Participation Boundary</strong><br>
+				Participation in Asveora’s Decentralized Democratic Constitutional Republic (DDCR) governance model, including voting, jury participation, court proceedings, and civic review processes, constitutes engagement in internal civic systems only. Such participation does not create legal agency, fiduciary duty, or enforceable real-world legal obligations between Asveora, its Networks, Federations, or its members. All governance mechanisms operate strictly within the defined authority scope of the relevant Network or Federation as established under the Network / Federation / Ecosystem hierarchy clause.<br><br>
+
+				<strong>Data and Content Responsibility</strong><br>
+				All content, data, communications, and materials shared within Asveora are the responsibility of the Asveoran who created or distributed them. Asveora does not claim ownership of user-generated content and does not assume custodial responsibility for it. Individual Networks and Federations may establish their own moderation or governance-based content policies, but such actions remain internal to those structures and do not transfer liability to the broader Ecosystem.<br><br>
+
+				<strong>Cultural and Civic Responsibility Boundaries</strong><br>
+				Asveora promotes a culture of mutual respect, civic responsibility, and collective care among Asveorans. However, such expectations are cultural and civic in nature and do not establish legal guardianship, fiduciary responsibility, or duty-of-care obligations between individuals, Networks, Federations, or the Ecosystem itself. No party within Asveora is legally responsible for supervising, controlling, or guaranteeing the actions of another participant.<br><br>
+
+				<strong>Third-Party Systems and External Dependencies</strong><br>
+				Asveora operates in conjunction with external infrastructure, platforms, services, and tools selected and utilized by Asveorans. These third-party systems are independent entities and are not controlled, operated, or guaranteed by the Asveora Ecosystem. Asveora is not liable for damages, failures, data loss, or security issues arising from external systems or services used by Asveorans.<br><br>
+
+				<strong>Federation and Network Responsibility Scope</strong><br>
+				All governance enforcement, moderation, and civic adjudication actions apply strictly within the boundaries of the relevant Network or Federation. No Network or Federation has inherent authority outside its defined scope unless explicitly established through formal Federation agreements. Enforcement authority does not extend beyond these boundaries except where explicitly defined through Federation-level agreements. Likewise, no enforcement action within Asveora constitutes or implies jurisdiction under real-world legal systems.<br><br>
+
+				<strong>Enforcement and Legal Separation</strong><br>
+				All civic enforcement mechanisms within Asveora, including court proceedings, jury determinations, and governance rulings, exist solely as internal systems of digital civic administration. These mechanisms do not constitute legal proceedings under any national or international law. However, where activity within Asveora violates applicable laws, Asveora may cooperate with relevant legal authorities as required.
+			</span>
+		</div>
+      
+        <!--22-AGREEMENT-TO-THE-CONSTITUTION-->
+
+        <div id="agreement-to-the-constitution" class="cnstttn-content-body">
+            <span class="cnstttn-section-title"><strong>22. Agreement to the Constitution</strong>
+            </span>
+        </div>
+
+        <div class="cnstttn-content-body">
+            <span class="cnstttn-content-body-text">
+
+                <strong>Binding Civic Agreement</strong><br>
+                By accessing or participating in any part of the Asveora Ecosystem, including any Network, Federation, or associated civic structure, an Asveoran agrees to be bound by this Constitution in full.<br><br>
+
+                <strong>Assumption of Awareness and Responsibility</strong><br>
+                Continued participation constitutes acknowledgment of the current Constitution and responsibility to remain informed of updates or amendments.<br><br>
+
+                <strong>Civic Accountability and Enforcement</strong><br>
+                Violations may result in civic review or enforcement actions under applicable Sections, including identity integrity enforcement (Section 12) and Federation governance rules (Section 13).<br><br>
+
+                <strong>Identity-Based Applicability</strong><br>
+                This Constitution applies through the Civic Identity Unit (AUID). All profiles and Communications Profiles resolve to a single civic identity under Section 12, and cannot be used to bypass compliance or enforcement.<br><br>
+
+                <strong>Publication Requirement</strong><br>
+                This Constitution must be publicly accessible within all Networks, Federations, and subordinate civic structures operating under the Asveora Ecosystem.
+
+            </span>
+        </div>
+      
+        <!--23-HISTORY-OF-THE-CONSTITUTION-->
+
+        <div id="history-of-the-constitution" class="cnstttn-content-body">
+            <span class="cnstttn-section-title"><strong>23. History of the Constitution</strong>
+            </span>
+        </div>
+
+        <div class="cnstttn-content-body">
+            <span class="cnstttn-content-body-text"><strong>2023-01-06:</strong> The constitution of Asveora is drafted by the first citizens of Asveora and the first declared federation of Asveora known as "Asveora Genesis" on January 6th, 2023. It is ratified that day at 9:00 PM (EST/UTC-5).
+            </span>
+        </div>
+
+        <div class="cnstttn-content-body">
+            <span class="cnstttn-content-body-text"><strong>2023-04-07:</strong> The first amendments to the constitution of Asveora are made and signed into action on April 7th, 2023 at 3:00 AM (EDT/UTC-4).
+            </span>
+        </div>
+
+        <div class="cnstttn-content-body">
+            <span class="cnstttn-content-body-text"><strong>2026-04-11:</strong> The second amendments to the constitution of Asveora are made and signed into action on April 11th, 2026 at 12:43 PM (EDT/UTC-4).
+            </span>
+        </div>
+
+        <div class="cnstttn-content-body">
+            <span class="cnstttn-content-body-text"><strong>2026-04-19:</strong> The third amendments to the constitution of Asveora are made and signed into action on April 19th, 2026 at 9:33 PM (EDT/UTC-4).
+            </span>
+        </div>
+
+        <div class="cnstttn-content-body">
+            <span class="cnstttn-content-body-text"><strong>2026-05-16:</strong> The Constitution is comprehensively restructured to formalize Network and Federation hierarchy, enforce Civic Identity Integrity (AUID consolidation rules), introduce Federation transition cooldown systems, and standardize enforcement boundaries across the Asveora Ecosystem. It is signed into action on May 17th, 2026 at 01:38 AM (EDT/UTC-4).
+            </span>
+        </div>
+
+	</div>
+
+	<!--SCTN-RETURN-BANNER-->
+	<!--This is the return button of the page.-->
+
+	<a href="https://wheelcore.asveora.social/p/library.html">
+		<div class="cnstttn-return-button">
+			<span class="cnstttn-lb-text-02"><strong>Return to Library</strong></span>
+		</div>
+	</a>
+
+<!--HTML-END-->

@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cdn.asveora.social/schemas/access-control/service-identities.schema.json",
+
+  "title": "Service Identity",
+  "type": "object",
+
+  "additionalProperties": false,
+
+  "required": [
+    "service_id",
+    "identity_binding",
+    "roles",
+    "created_at"
+  ],
+
+  "description": "Defines a service-level identity bound to a CIR-backed PIK. This schema is strictly for service execution identity mapping and MUST NOT be treated as human identity, authorization authority, or federation participant.",
+
+  "properties": {
+
+    "service_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]{3,64}$"
+    },
+
+    "identity_binding": {
+      "type": "object",
+      "description": "Binding to CIR-backed identity. CIR is the authoritative identity source. AUID is informational only and MUST NOT be used for identity resolution or authorization decisions.",
+
+      "required": ["pik", "auid"],
+
+      "properties": {
+
+        "pik": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{8,64}$"
+        },
+
+        "auid": {
+          "type": "string",
+          "description": "Non-authoritative identifier used for display/debug purposes only."
+        }
+      }
+    },
+
+    "roles": {
+      "type": "array",
+      "description": "RBAC role identifiers. Must resolve to role.schema.json definitions only. MUST NOT confer authority outside RBAC evaluation.",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-f0-9]{8,64}$"
+      }
+    },
+
+    "allowed_environments": {
+      "type": "array",
+      "description": "Execution context constraints only. MUST NOT encode trust, federation authority, or registry control logic.",
+      "items": {
+        "type": "string"
+      }
+    },
+
+    "rotation_policy": {
+      "type": "object",
+      "description": "Operational metadata only. MUST NOT modify identity binding, CIR state, RBAC authority, or delegation rules.",
+      "additionalProperties": true
+    },
+
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

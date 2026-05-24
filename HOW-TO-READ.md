@@ -1,0 +1,21 @@
+# How to Read the Asveora RFC Repository
+
+This repository is not meant to be read as a continuous document in the way traditional technical writing is consumed. It behaves more like a structured system map, where meaning emerges from dependency relationships rather than linear progression. To understand it correctly, you have to treat it as a layered specification rather than a narrative explanation.
+
+Before anything else, it is important to ground your understanding in what this repository actually is. It is a specification system, not a runtime environment. Nothing within it executes, and nothing here represents live system behavior. If that distinction is not clear, it becomes easy to misread structural definitions as operational logic, which leads to incorrect assumptions about how the system functions.
+
+The system itself is organized as a hierarchy of dependent layers. At the foundation sits identity, represented by CIR. Above that is registry state, which expresses how identities exist at a given moment. From there, commit history defines how that state changes over time. Authorization mechanisms interpret those changes in terms of access and permission. Federation handles how state is shared across systems. Governance defines the constraints under which all of this operates. At the top sits the API layer, which exposes controlled entry points into the model from external systems.
+
+This ordering is not arbitrary. Each layer depends on the correctness and stability of the layers beneath it. Identity cannot be understood without registry state, and registry state cannot be interpreted without commit history. Federation and governance only make sense once those foundational structures are established. The API layer is intentionally last because it represents interaction rather than definition.
+
+When reading the repository, it is helpful to follow a recommended progression. Begin with core identity concepts, then move into registry structure and how identity is materialized in system state. From there, examine lifecycle rules that define how identities transition over time. Only after that should federation behavior be considered, followed by governance constraints and finally external API interactions. This order mirrors the dependency structure of the system itself and prevents misinterpretation of higher-level concepts as independent logic.
+
+A critical principle underlying the entire specification is that nothing within it executes. The repository defines structure, constraints, relationships, and allowed transitions, but it does not define runtime behavior. Execution is assumed to exist outside the scope of the specification and must conform to these rules rather than define them. This distinction is essential for correct interpretation of every component in the system.
+
+While reading, it is important not to collapse abstraction layers. Schemas are not logic; they are structural constraints. Governance is not enforcement; it is policy definition. Federation is not authority; it is transport and coordination. Confusing these roles leads to incorrect mental models of how the system is intended to operate.
+
+If the system ever feels difficult to reason about, the issue is usually not complexity but layer ambiguity. Each file belongs to a specific level of abstraction, and understanding it requires identifying that level first, then interpreting it only in relation to its dependencies. Asking what layer you are in, what it depends on, and what it explicitly excludes is sufficient to resolve most points of confusion.
+
+The entire system is built on strict hierarchical ordering. Lower layers define truth, and higher layers are constrained by that truth without redefining it. There are no circular dependencies in execution, and no component is allowed to redefine the meaning of another at a higher level of abstraction. This ensures determinism across the system and prevents interpretive drift.
+
+Ultimately, this repository is a specification for how systems should be constructed, not a system itself. It is designed to be deterministic, layered, dependency-driven, and implementation-neutral, providing a stable foundation for building interoperable identity infrastructures.

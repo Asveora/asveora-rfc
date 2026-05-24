@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cdn.asveora.social/schemas/access-control/permission-scopes.schema.json",
+  "title": "Permission Scopes",
+  "type": "object",
+  "additionalProperties": false,
+
+  "required": ["permission_id", "resource", "action"],
+
+  "properties": {
+
+    "permission_id": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{8,64}$"
+    },
+
+    "resource": {
+      "type": "string",
+      "description": "Target resource namespace. MUST NOT include schema layer, registry authority layer, federation control plane, or exposure decision system (EDS)."
+    },
+
+    "action": {
+      "type": "string",
+      "description": "Permitted operation within RBAC scope. MUST NOT represent schema mutation, registry authority operations, federation control, or exposure decision logic."
+    },
+
+    "conditions": {
+      "type": "object",
+      "description": "Non-authoritative contextual constraints used only for evaluation. MUST NOT influence schema, registry, federation, or exposure authority decisions.",
+      "additionalProperties": true
+    },
+
+    "effect": {
+      "type": "string",
+      "enum": ["ALLOW", "DENY"]
+    }
+  }
+}

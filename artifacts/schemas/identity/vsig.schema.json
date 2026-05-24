@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cdn.asveora.social/schemas/identity/vsig.schema.json",
+  "title": "Verification Signature (VSIG)",
+  "type": "object",
+  "additionalProperties": false,
+
+  "required": ["vsig", "pik_reference", "cir_reference", "algorithm", "created_at"],
+
+  "properties": {
+
+    "vsig": {
+      "type": "string",
+      "description": "Verification Signature (VSIG). Human or system verification artifact bound to a PIK. Used only as proof of verification activity and NOT as an identity authority component.",
+      "pattern": "^[a-f0-9]{64,512}$"
+    },
+
+    "pik_reference": {
+      "type": "string",
+      "description": "PIK this verification signature is bound to. REQUIRED for signature validity.",
+      "pattern": "^[a-f0-9]{32,128}$"
+    },
+
+    "cir_reference": {
+      "type": "string",
+      "description": "CIR-backed registry identity this VSIG is associated with. Required for traceability only. NOT an authority source.",
+      "pattern": "^[a-f0-9]{8,64}$"
+    },
+
+    "algorithm": {
+      "type": "string",
+      "description": "Algorithm used to produce the VSIG. This is a verification method descriptor only.",
+      "enum": ["HMAC_SHA256", "ED25519_SIG", "RSA_PSS", "USER_ACTION_HASH"]
+    },
+
+    "verification_context": {
+      "type": "string",
+      "description": "Optional description of the verification event (e.g., avatar change, profile modification, login confirmation). NON-AUTHORITATIVE.",
+      "maxLength": 256
+    },
+
+    "status": {
+      "type": "string",
+      "description": "Lifecycle status of the verification signature.",
+      "enum": ["ACTIVE", "EXPIRED", "INVALIDATED", "SUPERSEDED"]
+    },
+
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+
+    "metadata": {
+      "type": "object",
+      "description": "Non-authoritative metadata. MUST NOT affect identity resolution, registry state, RBAC, federation, or exposure decisions.",
+      "additionalProperties": true
+    }
+  }
+}

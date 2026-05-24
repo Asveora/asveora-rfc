@@ -1,0 +1,190 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cdn.asveora.social/schemas/core/00-identity-unified-model.schema.json",
+  "title": "Asveora Unified Identity Model (AUIM)",
+  "type": "object",
+
+  "description": "Canonical cross-schema contract defining how CIR, PIK, VSIG, APA, AUID, and RGBSIG relate. This model is the highest-precedence identity specification. All identity-related schemas MUST conform to it.",
+
+  "additionalProperties": false,
+
+  "properties": {
+
+    "identity_model_version": {
+      "type": "string",
+      "description": "Version of the unified identity model specification.",
+      "const": "1.0"
+    },
+
+    "cir": {
+      "type": "object",
+      "description": "Canonical Identity Record (CIR). Root authority record in the identity system.",
+
+      "required": ["cir_id", "pik_ref", "vsig_ref", "apa_ref"],
+
+      "properties": {
+
+        "cir_id": {
+          "type": "string",
+          "description": "Globally unique CIR identifier.",
+          "pattern": "^[a-f0-9]{8,64}$"
+        },
+
+        "pik_ref": {
+          "type": "string",
+          "description": "Reference to PIK (Primary Identity Key). MUST NOT be embedded key material.",
+          "pattern": "^[a-f0-9]{32,128}$"
+        },
+
+        "vsig_ref": {
+          "type": "string",
+          "description": "Reference to VSIG object. MUST NOT be inline signature data.",
+          "pattern": "^[a-f0-9]{64,128}$"
+        },
+
+        "apa_ref": {
+          "type": "string",
+          "description": "Reference to APA object. MUST resolve to APA schema entity.",
+          "pattern": "^[a-z0-9][a-z0-9-]{7,127}$"
+        },
+
+        "identity_state": {
+          "type": "string",
+          "enum": [
+            "INITIATED",
+            "VERIFIED",
+            "VALIDATED",
+            "ACTIVE",
+            "SUSPENDED",
+            "MIGRATING",
+            "TOMBSTONED"
+          ]
+        }
+      }
+    },
+
+    "pik": {
+      "type": "object",
+      "description": "Primary Identity Key (PIK) model definition. Cryptographic root identity anchor.",
+
+      "required": ["pik_id", "cir_binding"],
+
+      "properties": {
+
+        "pik_id": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{32,128}$"
+        },
+
+        "cir_binding": {
+          "type": "string",
+          "description": "CIR this PIK is bound to. PIK cannot exist outside CIR scope.",
+          "pattern": "^[a-f0-9]{8,64}$"
+        }
+      }
+    },
+
+    "vsig": {
+      "type": "object",
+      "description": "Verification Signature (VSIG). Non-authoritative verification artifact bound to PIK and CIR.",
+
+      "required": ["vsig_id", "pik_ref", "cir_ref"],
+
+      "properties": {
+
+        "vsig_id": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64,128}$"
+        },
+
+        "pik_ref": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{32,128}$"
+        },
+
+        "cir_ref": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{8,64}$"
+        }
+      }
+    },
+
+    "apa": {
+      "type": "object",
+      "description": "Asveora Profile Address (APA). Addressing layer for identity resolution. Non-authoritative.",
+
+      "required": ["apa_id", "cir_ref"],
+
+      "properties": {
+
+        "apa_id": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9-]{7,127}$"
+        },
+
+        "cir_ref": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{8,64}$"
+        }
+      }
+    },
+
+    "auid": {
+      "type": "string",
+      "description": "Asveora Unified Identity Descriptor (AUID). DERIVED ONLY. NEVER stored as authoritative data. Format: [APA]=[PIK]-[VSIG].",
+      "pattern": "^[a-z0-9-]{8,256}=[a-f0-9]{32,128}-[a-f0-9]{64,128}$"
+    },
+
+    "rgbsig": {
+      "type": "object",
+      "description": "Human-only activity proof artifact. NON-AUTHORITATIVE. MUST NOT be used in identity resolution, CIR, PIK, VSIG, or AUID computation.",
+
+      "required": ["rgbsig_id", "apa_ref"],
+
+      "properties": {
+
+        "rgbsig_id": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64,512}$"
+        },
+
+        "apa_ref": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9-]{7,127}$"
+        },
+
+        "event_type": {
+          "type": "string",
+          "enum": [
+            "AVATAR_CHANGE",
+            "PROFILE_THEME_CHANGE",
+            "PROFILE_METADATA_UPDATE",
+            "DISPLAY_NAME_CHANGE",
+            "PROFILE_LAYOUT_CHANGE"
+          ]
+        }
+      }
+    }
+  },
+
+  "allOf": [
+    {
+      "description": "Enforce strict separation: RGBSIG MUST NOT influence identity core objects.",
+      "not": {
+        "properties": {
+          "cir": {
+            "required": ["rgbsig"]
+          }
+        }
+      }
+    },
+    {
+      "description": "AUID must remain derived-only and not referenced inside CIR as stored authority data beyond representation.",
+      "properties": {
+        "auid": {
+          "type": "string"
+        }
+      }
+    }
+  ]
+}

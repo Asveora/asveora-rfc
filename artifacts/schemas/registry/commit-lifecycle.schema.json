@@ -1,0 +1,206 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cdn.asveora.social/schemas/registry/commit-lifecycle.schema.json",
+  "title": "Registry Commit Lifecycle Schema",
+  "type": "object",
+
+  "additionalProperties": false,
+
+  "description": "Defines the deterministic lifecycle and validation pipeline through which a CIR transitions from external input into a committed Registry State entry within a Network Instance.",
+
+  "required": [
+    "lifecycle_id",
+    "instance_origin",
+    "created_at",
+    "stages",
+    "final_state"
+  ],
+
+  "properties": {
+
+    "lifecycle_id": {
+      "type": "string",
+      "description": "Unique identifier for this commit lifecycle execution",
+      "pattern": "^[a-f0-9]{12,64}$"
+    },
+
+    "instance_origin": {
+      "type": "string",
+      "description": "Network Instance executing the commit lifecycle",
+      "minLength": 3,
+      "maxLength": 256
+    },
+
+    "created_at": {
+      "type": "string",
+      "description": "ISO-8601 timestamp when lifecycle execution began",
+      "format": "date-time"
+    },
+
+    "final_state": {
+      "type": "string",
+      "description": "Terminal outcome of the commit lifecycle execution",
+      "enum": [
+        "COMMITTED",
+        "REJECTED",
+        "QUARANTINED",
+        "FAILED_VALIDATION"
+      ]
+    },
+
+    "stages": {
+      "type": "array",
+      "description": "Ordered deterministic sequence of lifecycle stages executed during commit evaluation",
+
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+
+        "required": [
+          "stage_name",
+          "timestamp",
+          "status"
+        ],
+
+        "properties": {
+
+          "stage_name": {
+            "type": "string",
+            "description": "Name of the lifecycle stage",
+            "enum": [
+              "INGESTION",
+              "STRUCTURAL_VALIDATION",
+              "CIR_AUTHENTICITY_VERIFICATION",
+              "FEDERATION_CONTEXT_CHECK",
+              "POLICY_EVALUATION",
+              "REGISTRY_PRE_COMMIT",
+              "COMMIT_FINALIZATION"
+            ]
+          },
+
+          "timestamp": {
+            "type": "string",
+            "description": "ISO-8601 timestamp when this stage executed",
+            "format": "date-time"
+          },
+
+          "status": {
+            "type": "string",
+            "description": "Outcome of this lifecycle stage",
+            "enum": [
+              "PASSED",
+              "FAILED",
+              "SKIPPED",
+              "QUARANTINED"
+            ]
+          },
+
+          "reason": {
+            "type": "string",
+            "description": "Optional explanation for non-passing stage outcomes"
+          }
+        }
+      }
+    },
+
+    "input_cir_hash": {
+      "type": "string",
+      "description": "Cryptographic or deterministic hash reference of the CIR under evaluation. MUST represent canonical CIR state excluding federation_signals, validation_context, and result_metadata.",
+      "pattern": "^[a-f0-9]{32,128}$"
+    },
+
+    "validation_context": {
+      "type": "object",
+      "description": "Non-authoritative runtime context used during evaluation",
+
+      "additionalProperties": true,
+
+      "properties": {
+
+        "federation_signals": {
+          "type": "object",
+          "description": "Advisory federation metadata used for context-aware validation. MUST be treated as non-authoritative. MUST NOT influence deterministic commit outcome, registry state transitions, or validation pass/fail decisions.",
+
+          "additionalProperties": true,
+
+          "properties": {
+
+            "source_instance": {
+              "type": "string"
+            },
+
+            "trust_hint": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+
+            "sync_state": {
+              "type": "string",
+              "enum": [
+                "SYNCED",
+                "STALE",
+                "DEGRADED",
+                "QUARANTINED"
+              ]
+            }
+          }
+        },
+
+        "policy_version": {
+          "type": "string",
+          "description": "Version identifier for local policy reference only. MUST NOT alter registry commit logic or override deterministic validation rules."
+        }
+      }
+    },
+
+    "result_metadata": {
+      "type": "object",
+      "description": "Non-authoritative diagnostic metadata for auditing commit decisions",
+
+      "additionalProperties": true,
+
+      "properties": {
+
+        "duration_ms": {
+          "type": "integer",
+          "minimum": 0
+        },
+
+        "retry_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+
+        "validation_engine_version": {
+          "type": "string"
+        }
+      }
+    }
+  },
+
+  "allOf": [
+
+    {
+      "if": {
+        "properties": {
+          "final_state": { "const": "REJECTED" }
+        }
+      },
+      "then": {
+        "required": ["stages"]
+      }
+    },
+
+    {
+      "if": {
+        "properties": {
+          "final_state": { "const": "COMMITTED" }
+        }
+      },
+      "then": {
+        "required": ["input_cir_hash"]
+      }
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+%% registry-commit-flow.mmd
+%% Stub diagram for Asveora registry commit lifecycle
+%% Compatible with VS Code Mermaid Preview
+%% Placeholder IDs added for RFC referencing
+
+%%{init: {'theme':'default'}}%%
+graph TD
+    id_rcf_01[Identity Core (Layer 0)] -->|Commit Request| id_rcf_02[Registry System (Layer 4)]
+    id_rcf_02 --> id_rcf_03[Validation Layer (Layer 2)]
+    id_rcf_03 --> id_rcf_02
+    id_rcf_02 --> id_rcf_04[Commit Confirmed (Registry Output)]
+    id_rcf_04 --> id_rcf_05[Access Control (Layer 6)]
+    id_rcf_05 --> id_rcf_06[API Layer (Layer 7)]
+
+    %% Notes: placeholder nodes for future expansion
+    classDef note fill:#f9f,stroke:#333,stroke-width:1px,color:#000;
+    class id_rcf_01,id_rcf_02,id_rcf_03,id_rcf_04,id_rcf_05,id_rcf_06 note;

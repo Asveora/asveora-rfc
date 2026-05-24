@@ -1,0 +1,155 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+
+  "$id": "https://cdn.asveora.social/schemas/v1/registry/registry-commit.schema.json",
+
+  "title": "Registry Commit Schema (Append-Only Mutation Record)",
+
+  "type": "object",
+
+  "additionalProperties": false,
+
+  "required": [
+    "commit_id",
+    "instance_origin",
+    "timestamp",
+    "previous_commit_id",
+    "operation_type",
+    "cir_changes"
+  ],
+
+  "properties": {
+
+    "commit_id": {
+      "type": "string",
+      "description": "Unique identifier for this commit",
+      "pattern": "^[a-f0-9]{12,64}$"
+    },
+
+    "instance_origin": {
+      "type": "string",
+      "description": "Network Instance that authored this commit",
+      "minLength": 3,
+      "maxLength": 256
+    },
+
+    "timestamp": {
+      "type": "string",
+      "description": "ISO-8601 timestamp of commit creation",
+      "format": "date-time"
+    },
+
+    "previous_commit_id": {
+      "type": "string",
+      "description": "Pointer to prior commit in the append-only chain (null for genesis)",
+      "pattern": "^[a-f0-9]{12,64}$"
+    },
+
+    "operation_type": {
+      "type": "string",
+      "description": "Type of registry mutation being performed",
+      "enum": [
+        "CREATE_CIR",
+        "UPDATE_CIR",
+        "SUSPEND_CIR",
+        "TOMBSTONE_CIR",
+        "MIGRATE_CIR",
+        "SYNC_FEDERATION_STATE"
+      ]
+    },
+
+    "cir_changes": {
+      "type": "array",
+      "description": "List of CIR deltas affected by this commit",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+
+        "required": [
+          "pik",
+          "change_type"
+        ],
+
+        "properties": {
+
+          "pik": {
+            "type": "string",
+            "description": "Primary Identity Key being modified",
+            "pattern": "^[a-f0-9]{8,64}$"
+          },
+
+          "change_type": {
+            "type": "string",
+            "enum": [
+              "CREATED",
+              "UPDATED",
+              "SUSPENDED",
+              "TOMBSTONED",
+              "MIGRATED"
+            ]
+          },
+
+          "before_state": {
+            "type": "object",
+            "description": "Optional previous CIR state snapshot (partial or full)",
+            "additionalProperties": true
+          },
+
+          "after_state": {
+            "type": "object",
+            "description": "Optional resulting CIR state snapshot (partial or full)",
+            "additionalProperties": true
+          }
+        }
+      }
+    },
+
+    "commit_metadata": {
+      "type": "object",
+      "description": "Non-authoritative operational metadata for observability and debugging",
+      "additionalProperties": true,
+
+      "properties": {
+
+        "actor": {
+          "type": "string",
+          "description": "Identity or system that initiated the commit"
+        },
+
+        "reason": {
+          "type": "string",
+          "description": "Human-readable or system-generated reason for commit"
+        },
+
+        "federation_origin": {
+          "type": "string",
+          "description": "If commit originated from federation sync, source instance ID"
+        },
+
+        "sync_state": {
+          "type": "string",
+          "enum": [
+            "LOCAL",
+            "FEDERATED",
+            "RECONCILED",
+            "CONFLICTED"
+          ]
+        }
+      }
+    }
+  },
+
+  "allOf": [
+
+    {
+      "if": {
+        "properties": {
+          "previous_commit_id": { "type": "string" }
+        }
+      },
+      "then": {
+        "required": ["previous_commit_id"]
+      }
+    }
+  ]
+}
